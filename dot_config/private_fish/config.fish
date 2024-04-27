@@ -64,9 +64,6 @@ fish_add_path ~/.config/fish/nvm-bin
 # zoxide
 zoxide init fish | source
 
-# thefuck
-thefuck --alias | source
-
 # starship prompt
 starship init fish | source
 
