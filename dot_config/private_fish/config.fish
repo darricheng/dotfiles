@@ -57,6 +57,10 @@ fish_add_path /opt/homebrew/opt/llvm/bin
 # fish_add_path (pyenv root)/bin
 # pyenv init - | source
 
+# see fish-nvm: https://github.com/FabioAntunes/fish-nvm?tab=readme-ov-file#please-read-these-notes
+set -g nvm_alias_output ~/.config/fish/nvm-bin
+fish_add_path ~/.config/fish/nvm-bin
+
 # zoxide
 zoxide init fish | source
 
