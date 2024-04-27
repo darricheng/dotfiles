@@ -23,6 +23,10 @@ alias tk="tmux list-keys"
 alias f="fzf"
 alias man="batman"
 alias cz="chezmoi"
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 
 # Additions to $PATH
 # Postgres
