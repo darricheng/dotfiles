@@ -6,10 +6,10 @@ end
 set -gx EDITOR nvim
 
 # aliases
-alias zshrc="nvim ~/.zshrc"
-alias nconf="nvim ~/.config/nvim"
-alias tconf="nvim ~/.config/tmux"
-alias fconf="nvim ~/.config/fish"
+alias zshrc="chezmoi edit --apply ~/.zshrc"
+alias nconf="chezmoi edit --apply ~/.config/nvim"
+alias tconf="chezmoi edit --apply ~/.config/tmux"
+alias fconf="chezmoi edit --apply ~/.config/fish"
 alias n="nvim"
 alias g="git"
 alias gs="git status"
@@ -44,8 +44,14 @@ fish_add_path /Users/darricheng/.local/share/nvim/mason/bin
 # llvm
 fish_add_path /opt/homebrew/opt/llvm/bin
 # Not sure if I'll need the below two when using clang?
-# export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+# set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
+# set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
+
+# Python
+# See for pyenv installation: https://opensource.com/article/19/5/python-3-default-mac
+# Also see pyenv readme: https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv
+# fish_add_path $(pyenv root)/bin
+# pyenv init - | source
 
 # zoxide
 zoxide init fish | source
@@ -62,4 +68,4 @@ fzf --fish | source
 # opam configuration
 # source /Users/darricheng/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
-# TODO: Setup pyenv and nvm (see zshrc)
+# TODO: Setup nvm (see zshrc)
