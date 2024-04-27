@@ -6,29 +6,29 @@ end
 set -gx EDITOR nvim
 
 # aliases
-alias zshrc="chezmoi edit --apply ~/.zshrc"
-alias nconf="chezmoi edit --apply ~/.config/nvim"
-alias tconf="chezmoi edit --apply ~/.config/tmux"
-alias fconf="chezmoi edit --apply ~/.config/fish"
-alias n="nvim"
-alias g="git"
-alias gs="git status"
-alias gd="git diff"
-alias ga="git add"
-alias gaa="git add --all"
-alias gc="git commit -m"
-alias gcv="git commit --verbose"
-alias gco="git checkout"
-alias gp="git push"
-alias t="tmux"
-alias tk="tmux list-keys"
-alias f="fzf"
-alias man="batman"
-alias cz="chezmoi"
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
+abbr -a zshrc chezmoi edit --apply ~/.zshrc
+abbr -a nconf chezmoi edit --apply ~/.config/nvim
+abbr -a tconf chezmoi edit --apply ~/.config/tmux
+abbr -a fconf chezmoi edit --apply ~/.config/fish
+abbr -a n nvim
+abbr -a g git
+abbr -a gs git status
+abbr -a gd git diff
+abbr -a ga git add
+abbr -a gaa git add --all
+abbr -a gc git commit -m
+abbr -a gcv git commit --verbose
+abbr -a gco git checkout
+abbr -a gp git push
+abbr -a t tmux
+abbr -a tk tmux list-keys
+abbr -a f fzf
+abbr -a man batman
+abbr -a cz chezmoi
+function multicd
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+abbr -a dotdot --regex '^\.\.+$' --function multicd
 
 # Additions to $PATH
 # Postgres
