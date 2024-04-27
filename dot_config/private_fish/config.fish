@@ -50,8 +50,16 @@ fish_add_path /opt/homebrew/opt/llvm/bin
 # zoxide
 zoxide init fish | source
 
+# thefuck
+thefuck --alias | source
+
 # starship prompt
 starship init fish | source
 
 # Set up fzf key bindings
 fzf --fish | source
+
+# opam configuration
+# source /Users/darricheng/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+# TODO: Setup pyenv and nvm (see zshrc)
