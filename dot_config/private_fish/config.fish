@@ -48,6 +48,7 @@ fish_add_path /opt/homebrew/opt/llvm/bin
 # set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
 
 # Python
+# Use virtualfish? https://github.com/justinmayer/virtualfish
 # TODO: Make it such that this only runs when I need it, e.g. when I run a specific command
 # See for pyenv installation: https://opensource.com/article/19/5/python-3-default-mac
 # Also see pyenv readme: https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv
