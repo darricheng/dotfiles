@@ -30,17 +30,19 @@ function multicd
 end
 abbr -a dotdot --regex '^\.\.+$' --function multicd
 
-# Additions to $PATH
+# Additions to PATH
+# homebrew
+fish_add_path /opt/homebrew/bin
 # Postgres
 fish_add_path /opt/homebrew/opt/postgresql@16/bin
 # make go binaries available on path
-fish_add_path $(go env GOPATH)/bin
+fish_add_path (go env GOPATH)/bin
 # Make brew's binutils available to the system
 fish_add_path /opt/homebrew/opt/binutils/bin
 # Use the homebrew-installed ruby instead of the one installed in macos by default
 fish_add_path /opt/homebrew/opt/ruby/bin
 # add packages installed by mason in Neovim
-fish_add_path /Users/darricheng/.local/share/nvim/mason/bin
+fish_add_path ~/.local/share/nvim/mason/bin
 # llvm
 fish_add_path /opt/homebrew/opt/llvm/bin
 # Not sure if I'll need the below two when using clang?
@@ -52,7 +54,7 @@ fish_add_path /opt/homebrew/opt/llvm/bin
 # TODO: Make it such that this only runs when I need it, e.g. when I run a specific command
 # See for pyenv installation: https://opensource.com/article/19/5/python-3-default-mac
 # Also see pyenv readme: https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv
-# fish_add_path $(pyenv root)/bin
+# fish_add_path (pyenv root)/bin
 # pyenv init - | source
 
 # zoxide
