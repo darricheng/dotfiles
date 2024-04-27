@@ -151,6 +151,7 @@ PATH=$PATH:$(pyenv root)/shims
 # 2>&1 redirects stderr to stdout
 # this if statement checks if calling pyenv outputs anything to stderr
 # any output possibly means pyenv isn't installed, so we don't run the inner block
+# See: https://stackoverflow.com/questions/818255/what-does-21-mean
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
