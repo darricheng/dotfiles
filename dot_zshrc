@@ -146,6 +146,11 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 # Python 
 PATH=$PATH:$(pyenv root)/shims
 # See for pyenv installation: https://opensource.com/article/19/5/python-3-default-mac
+# command runs the pyenv program, bypassing any functions with the same name
+# 1>/dev/null means to redirect stdout to /dev/null, i.e. discards it
+# 2>&1 redirects stderr to stdout
+# this if statement checks if calling pyenv outputs anything to stderr
+# any output possibly means pyenv isn't installed, so we don't run the inner block
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi

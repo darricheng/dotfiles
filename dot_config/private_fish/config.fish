@@ -48,6 +48,7 @@ fish_add_path /opt/homebrew/opt/llvm/bin
 # set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
 
 # Python
+# TODO: Make it such that this only runs when I need it, e.g. when I run a specific command
 # See for pyenv installation: https://opensource.com/article/19/5/python-3-default-mac
 # Also see pyenv readme: https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv
 # fish_add_path $(pyenv root)/bin
@@ -69,3 +70,4 @@ fzf --fish | source
 # source /Users/darricheng/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # TODO: Setup nvm (see zshrc)
+# Make it such that nvm only sources when I need it
