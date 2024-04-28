@@ -73,5 +73,3 @@ fzf --fish | source
 # opam configuration
 # source /Users/darricheng/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
-# TODO: Setup nvm (see zshrc)
-# Make it such that nvm only sources when I need it
