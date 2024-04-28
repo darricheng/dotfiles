@@ -32,9 +32,6 @@ require('mason-lspconfig').setup {
   },
 }
 
--- Plugin for outline with lsp
-require('aerial').setup {}
-
 -- lsp functionality keymaps
 lsp_zero.on_attach(function(_, bufnr)
   -- function to reduce boilerplate for setting keymaps

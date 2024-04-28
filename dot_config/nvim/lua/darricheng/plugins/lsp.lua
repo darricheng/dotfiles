@@ -12,6 +12,7 @@ return {
       'nvim-tree/nvim-web-devicons',
     },
     event = 'VeryLazy',
+    config = true,
   },
 
   -- Autocompletion
@@ -25,7 +26,8 @@ return {
   -- Snippets
   {
     'L3MON4D3/LuaSnip',
-    event = 'VeryLazy',
+    version = 'v2.*',
+    build = 'make install_jsregexp',
   },
   'rafamadriz/friendly-snippets',
 

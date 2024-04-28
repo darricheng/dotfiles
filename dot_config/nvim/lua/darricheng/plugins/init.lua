@@ -109,6 +109,7 @@ return {
   },
   {
     'stevearc/oil.nvim',
+    cmd = 'Oil',
     opts = {
       default_file_explorer = false,
       delete_to_trash = true,
