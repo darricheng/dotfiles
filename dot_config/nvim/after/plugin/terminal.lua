@@ -4,4 +4,4 @@
 -- with the vi-mode of tmux
 
 -- Retain the esc map in case I need to use the vim terminal
-vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]])
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
