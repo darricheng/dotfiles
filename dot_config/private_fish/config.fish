@@ -5,31 +5,6 @@ end
 # Env vars
 set -gx EDITOR nvim
 
-# aliases
-abbr -a zshrc chezmoi edit --apply ~/.zshrc
-abbr -a nconf chezmoi edit --apply ~/.config/nvim
-abbr -a tconf chezmoi edit --apply ~/.config/tmux
-abbr -a fconf chezmoi edit --apply ~/.config/fish
-abbr -a n nvim
-abbr -a g git
-abbr -a gs git status
-abbr -a gd git diff
-abbr -a ga git add
-abbr -a gaa git add --all
-abbr -a gc git commit -m
-abbr -a gcv git commit --verbose
-abbr -a gco git checkout
-abbr -a gp git push
-abbr -a t tmux
-abbr -a tk tmux list-keys
-abbr -a f fzf
-abbr -a man batman
-abbr -a cz chezmoi
-function multicd
-    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
-end
-abbr -a dotdot --regex '^\.\.+$' --function multicd
-
 # Additions to PATH
 # homebrew
 fish_add_path /opt/homebrew/bin
@@ -56,10 +31,6 @@ fish_add_path /opt/homebrew/opt/llvm/bin
 # Also see pyenv readme: https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv
 # fish_add_path (pyenv root)/bin
 # pyenv init - | source
-
-# see fish-nvm: https://github.com/FabioAntunes/fish-nvm?tab=readme-ov-file#please-read-these-notes
-set -g nvm_alias_output ~/.config/fish/nvm-bin
-fish_add_path ~/.config/fish/nvm-bin
 
 # zoxide
 zoxide init fish | source
