@@ -1,9 +1,20 @@
-# aliases
+# dotfiles/chezmoi
+abbr -a cz chezmoi
+abbr -a czg chezmoi git
+abbr -a czgs chezmoi git status
 abbr -a zshrc chezmoi edit --apply ~/.zshrc
 abbr -a nconf chezmoi edit --apply ~/.config/nvim
 abbr -a tconf chezmoi edit --apply ~/.config/tmux
 abbr -a fconf chezmoi edit --apply ~/.config/fish
+
+# common cli tools
 abbr -a n nvim
+abbr -a t tmux
+abbr -a tk tmux list-keys
+abbr -a f fzf
+abbr -a man batman
+
+# git
 abbr -a g git
 abbr -a gs git status
 abbr -a gd git diff
@@ -17,11 +28,6 @@ abbr -a gp git push
 abbr -a gf git fetch
 abbr -a gl git log
 abbr -a gpl git pull
-abbr -a t tmux
-abbr -a tk tmux list-keys
-abbr -a f fzf
-abbr -a man batman
-abbr -a cz chezmoi
 
 # For ... to go up parent dirs n times
 function multicd
