@@ -20,7 +20,7 @@ abbr -a gs git status
 abbr -a gd git diff
 abbr -a ga git add
 abbr -a gaa git add --all
-abbr -a gc git commit -m
+abbr -a gc --set-cursor git commit -m \"%\"
 abbr -a gcv git commit --verbose
 abbr -a gco git checkout
 abbr -a gsw git switch
