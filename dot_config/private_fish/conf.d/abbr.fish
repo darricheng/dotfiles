@@ -2,6 +2,8 @@
 abbr -a cz chezmoi
 abbr -a czg chezmoi git
 abbr -a czgs chezmoi git status
+abbr -a czgaa chezmoi git add .
+abbr -a czgc --set-cursor chezmoi git -- commit -m \"%\"
 abbr -a zshrc chezmoi edit --apply ~/.zshrc
 abbr -a nconf chezmoi edit --apply ~/.config/nvim
 abbr -a tconf chezmoi edit --apply ~/.config/tmux
