@@ -44,9 +44,7 @@ vim.keymap.set("n", "<leader>cp", [[<cmd>let @+=expand("%:p")<CR>]], { desc = "C
 vim.keymap.set("n", "<leader>cr", [[<cmd>let @+=expand("%")<CR>]], { desc = "Copy relative filepath" })
 vim.keymap.set("n", "<leader>cd", [[<cmd>let @+=expand("%:p:h")<CR>]], { desc = "Copy directory name" })
 
--- I use the command :E to exit files and go back to the file explorer
--- :E actually calls :Explore when there are no other commands starting with E
--- This remap maintains the :E shortcut to go back to the file explorer
-vim.api.nvim_create_user_command("E", "Explore", {})
+-- Map the E that I always use to Oil, so that I always open Oil anyway
+vim.api.nvim_create_user_command("E", "Oil", {})
 -- Similarly, :O for :Oil, because there's other commands starting with O
 vim.api.nvim_create_user_command("O", "Oil", {})
