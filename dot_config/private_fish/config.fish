@@ -29,8 +29,9 @@ fish_add_path /opt/homebrew/opt/llvm/bin
 # TODO: Make it such that this only runs when I need it, e.g. when I run a specific command
 # See for pyenv installation: https://opensource.com/article/19/5/python-3-default-mac
 # Also see pyenv readme: https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv
-# fish_add_path (pyenv root)/bin
-# pyenv init - | source
+set -Ux PYENV_ROOT $HOME/.pyenv
+fish_add_path $PYENV_ROOT/bin
+pyenv init - | source
 
 # zoxide
 zoxide init fish | source
