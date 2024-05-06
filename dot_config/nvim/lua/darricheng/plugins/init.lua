@@ -131,12 +131,12 @@ return {
 			view_options = {
 				show_hidden = true,
 			},
+			use_default_keymaps = false,
 			keymaps = {
 				["g?"] = "actions.show_help",
 				["<CR>"] = "actions.select",
 				["<C-v>"] = "actions.select_vsplit",
 				["<C-x>"] = "actions.select_split",
-				["C-t"] = false,
 				["<C-p>"] = "actions.preview",
 				["<C-c>"] = "actions.close",
 				["<C-r>"] = "actions.refresh",
@@ -148,6 +148,9 @@ return {
 				["gx"] = "actions.open_external",
 				["g."] = "actions.toggle_hidden",
 				["g\\"] = "actions.toggle_trash",
+				["C-t"] = false, -- don't need new tab
+				["C-l"] = false, -- so that tmux navigator works
+				["C-h"] = false, -- so that tmux navigator works
 			},
 		},
 		-- Optional dependencies
