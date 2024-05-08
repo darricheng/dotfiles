@@ -131,6 +131,9 @@ return {
 			view_options = {
 				show_hidden = true,
 			},
+			win_options = {
+				winbar = "%{v:lua.require('oil').get_current_dir()}",
+			},
 			use_default_keymaps = false,
 			keymaps = {
 				["g?"] = "actions.show_help",
