@@ -18,6 +18,10 @@ require("nvim-treesitter.configs").setup({
 		"json",
 		"toml",
 		"regex",
+		"bash",
+		"css",
+		"just",
+		"fish",
 	},
 	sync_install = false,
 	-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
