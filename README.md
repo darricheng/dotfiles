@@ -7,3 +7,19 @@
 - Install tmux plugins: `<prefix> I`
 - `broot --install`
 - (Optional) Install ohmyzsh: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+Vimium config
+
+```
+# Insert your preferred key mappings here.
+unmap K
+unmap J
+unmap gt
+unmap gT
+
+# search through tabs with f, freeing t for opening links
+map f Vomnibar.activateTabSelection
+map t LinkHints.activateMode
+map T LinkHints.activateModeToOpenInNewTab
+map F LinkHints.activateModeToOpenInNewForegroundTab
+```
