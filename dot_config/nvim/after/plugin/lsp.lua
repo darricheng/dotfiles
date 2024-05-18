@@ -42,9 +42,6 @@ lsp_zero.on_attach(function(_, bufnr)
 		vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
 	end
 
-	-- More info about symbol
-	map("n", "K", lsp.buf.hover, "Hover info about symbol")
-
 	-- Goto keymaps
 	map("n", "gd", tele.lsp_definitions, "[G]oto [D]efinition")
 	map("n", "go", tele.lsp_type_definitions, "[G]oto Type Definition")
@@ -62,8 +59,6 @@ lsp_zero.on_attach(function(_, bufnr)
 
 	-- Diagnostics
 	map("n", "gl", vim.diagnostic.open_float, "Open diagnostic float")
-	map("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
-	map("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
 
 	-- search symbols
 	map("n", "<leader>Sd", require("telescope.builtin").lsp_document_symbols, "[S]ymbols: [D]ocument")
