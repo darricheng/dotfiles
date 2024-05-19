@@ -21,17 +21,12 @@ require("conform").setup({
 		toml = { "taplo" },
 		php = { "php_cs_fixer" },
 	},
-	format_on_save = {
-		async = true,
-		lsp_fallback = true,
-		timeout_ms = 2500,
-	},
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
+		require("conform").format({ bufnr = args.buf, async = true, lsp_fallback = true })
 	end,
 })
 
