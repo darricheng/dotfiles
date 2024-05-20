@@ -18,12 +18,15 @@ require("no-neck-pain").setup({
 })
 -- NoNeckPain can be a bit buggy when more than one window is open,
 -- so this keymap resets the state of the windows by toggling the plugin twice
-vim.keymap.set(
-	"n",
-	"<leader>nr",
-	"<cmd>NoNeckPain<cr><cmd>NoNeckPain<cr>",
-	{ desc = "[N]oNeckPain: Reset (double toggle)" }
-)
+vim.keymap.set("n", "<leader>nr", function()
+	vim.cmd.NoNeckPain()
+	-- calling the function twice b2b didn't work after upgrading nvim to 0.10
+	-- would only be equal to calling the fn once
+	-- calling the second instance separately in a defer_fn seems to work fine
+	vim.defer_fn(function()
+		vim.cmd.NoNeckPain()
+	end, 0)
+end, { desc = "[N]oNeckPain: Reset (double toggle)" })
 
 -- blankline indentation configs
 require("ibl").setup({
