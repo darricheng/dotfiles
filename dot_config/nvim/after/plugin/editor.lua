@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>nr", function()
 	-- calling the second instance separately in a defer_fn seems to work fine
 	vim.defer_fn(function()
 		vim.cmd.NoNeckPain()
-	end, 0)
+	end, 100)
 end, { desc = "[N]oNeckPain: Reset (double toggle)" })
 
 -- blankline indentation configs
