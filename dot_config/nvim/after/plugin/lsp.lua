@@ -59,6 +59,8 @@ lsp_zero.on_attach(function(_, bufnr)
 
 	-- Diagnostics
 	map("n", "gl", vim.diagnostic.open_float, "Open diagnostic float")
+	map("n", "]d", vim.diagnostic.goto_next, "Jump to the next diagnostic")
+	map("n", "[d", vim.diagnostic.goto_prev, "Jump to the previous diagnostic")
 
 	-- search symbols
 	map("n", "<leader>Sd", require("telescope.builtin").lsp_document_symbols, "[S]ymbols: [D]ocument")
