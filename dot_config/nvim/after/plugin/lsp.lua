@@ -1,5 +1,14 @@
 -- Setup neodev before lsp-config
-require("neodev").setup({})
+require("neodev").setup({
+	-- not entirely sure if this is needed, but just ensures I have neodev when
+	-- editing in chezmoi too I think (:h neodev.nvim-neodev.nvim-setup)
+	override = function(root_dir, library)
+		if root_dir:find("~/.local/share/chezmoi/dot_config/nvim", 1, true) == 1 then
+			library.enabled = true
+			library.plugins = true
+		end
+	end,
+})
 
 local lsp_zero = require("lsp-zero")
 local lsp = vim.lsp
