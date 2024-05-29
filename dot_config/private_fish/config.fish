@@ -8,6 +8,8 @@ set -gx EDITOR nvim
 # Additions to PATH
 # homebrew
 fish_add_path /opt/homebrew/bin
+# rust binaries installed with cargo 
+fish_add_path ~/.cargo/bin
 # Postgres
 fish_add_path /opt/homebrew/opt/postgresql@16/bin
 # make go binaries available on path
