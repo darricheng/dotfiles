@@ -1,7 +1,16 @@
-shell = "/opt/homebrew/bin/fish"
+# import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+
+[shell]
+program = "/opt/homebrew/bin/fish"
+
+[font]
+normal = { family = "CommitMono Nerd Font", style = "Regular" }
 
 [keyboard]
 bindings = [
   # Prevent new tabs from being created
   { key = "T", mods = "Command", action = "ReceiveChar" },
 ]
+
+[env]
+TERM = "xterm-256color"
