@@ -1,0 +1,7 @@
+shell = "/opt/homebrew/bin/fish"
+
+[keyboard]
+bindings = [
+  # Prevent new tabs from being created
+  { key = "T", mods = "Command", action = "ReceiveChar" },
+]
