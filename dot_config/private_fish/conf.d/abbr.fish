@@ -8,6 +8,7 @@ abbr -a zshrc chezmoi edit --apply ~/.zshrc
 abbr -a nconf chezmoi edit --apply ~/.config/nvim
 abbr -a tconf chezmoi edit --apply ~/.config/tmux
 abbr -a fconf chezmoi edit --apply ~/.config/fish
+abbr -a aconf chezmoi edit --apply ~/.config/alacritty
 
 # common cli tools
 abbr -a n nvim
