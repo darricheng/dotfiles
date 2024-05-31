@@ -10,6 +10,11 @@ normal = { family = "CommitMono Nerd Font", style = "Regular" }
 bindings = [
   # Prevent new tabs from being created
   { key = "T", mods = "Command", action = "ReceiveChar" },
+  # Cmd + arrows jump to start/end
+  { key = "Left", mods = "Command", chars = "\u001bOH" },
+  { key = "Right", mods = "Command", chars = "\u001bOF" },
+  # Cmd + backspace deletes to start of line
+  { key = "Back", mods = "Command", chars = "\u0015" },
 ]
 
 [env]
