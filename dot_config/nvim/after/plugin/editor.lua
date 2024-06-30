@@ -59,6 +59,7 @@ require("notify").setup({
 	max_width = 80,
 	max_height = 24,
 	fps = 60,
+	render = "wrapped-compact",
 })
 -- open the message history in telescope
 vim.keymap.set("n", "<leader>ms", function()
