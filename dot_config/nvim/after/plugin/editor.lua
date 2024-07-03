@@ -62,7 +62,7 @@ require("notify").setup({
 	render = "wrapped-compact",
 })
 -- open the message history in telescope
-vim.keymap.set("n", "<leader>ms", function()
+vim.keymap.set("n", "<leader>sm", function()
 	require("telescope").extensions.notify.notify()
 end, { desc = "[M]essage [S]earch" })
 
