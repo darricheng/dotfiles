@@ -21,13 +21,10 @@ require("conform").setup({
 		toml = { "taplo" },
 		php = { "php_cs_fixer" },
 	},
-})
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function(args)
-		require("conform").format({ bufnr = args.buf, lsp_fallback = true })
-	end,
+	format_on_save = {
+		lsp_format = "fallback",
+		timeout_ms = 500,
+	},
 })
 
 vim.keymap.set("n", "<leader>f", require("conform").format, { silent = true, noremap = true, desc = "[F]ormat buffer" })
