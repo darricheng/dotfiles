@@ -3,6 +3,9 @@ vim.cmd.colorscheme("catppuccin-mocha")
 
 require("no-neck-pain").setup({
 	width = 110,
+	autocmds = {
+		enableOnVimEnter = true,
+	},
 	mappings = {
 		-- enables key mappings for no-neck-pain
 		enabled = true,
