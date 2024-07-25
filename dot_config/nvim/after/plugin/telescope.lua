@@ -33,3 +33,4 @@ vim.keymap.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { de
 vim.keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "[S]earch [T]odos" })
 
 vim.keymap.set("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
+vim.keymap.set("n", "<leader>sn", require("telescope").extensions.notify.notify, { desc = "[S]earch [N]otifications" })
