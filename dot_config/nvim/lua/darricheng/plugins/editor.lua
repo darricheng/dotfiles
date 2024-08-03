@@ -77,4 +77,9 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
+	{
+		"tpope/vim-abolish",
+		cmd = { "Abolish", "Subvert" },
+		keys = "cr",
+	},
 }
