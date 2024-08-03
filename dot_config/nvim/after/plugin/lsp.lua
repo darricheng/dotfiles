@@ -1,15 +1,3 @@
--- Setup neodev before lsp-config
-require("neodev").setup({
-	-- not entirely sure if this is needed, but just ensures I have neodev when
-	-- editing in chezmoi too I think (:h neodev.nvim-neodev.nvim-setup)
-	override = function(root_dir, library)
-		if root_dir:find("~/.local/share/chezmoi/dot_config/nvim", 1, true) == 1 then
-			library.enabled = true
-			library.plugins = true
-		end
-	end,
-})
-
 local lsp_zero = require("lsp-zero")
 local lsp = vim.lsp
 local tele = require("telescope.builtin")
@@ -108,6 +96,11 @@ end
 
 cmp.setup({
 	sources = {
+		{
+			name = "lazydev",
+			-- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
+			group_index = 0,
+		},
 		{ name = "path" },
 		{ name = "nvim_lsp" },
 		{ name = "buffer", keyword_length = 3 },
@@ -131,7 +124,7 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	-- show the source that created the completion item
-	formatting = lsp_zero.cmp_format(),
+	formatting = lsp_zero.cmp_format({ details = true }),
 })
 
 -- setup vim.dadbod
