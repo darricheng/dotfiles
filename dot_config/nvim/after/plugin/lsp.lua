@@ -19,7 +19,7 @@ require("mason-lspconfig").setup({
 		"rust_analyzer",
 		"svelte",
 		"taplo",
-		"tsserver",
+		"ts_ls",
 		"yamlls",
 	},
 	handlers = {
