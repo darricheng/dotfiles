@@ -46,3 +46,7 @@ vim.opt.scrolloff = 16
 
 -- Set vertical split to open on the right by default
 vim.cmd([[set splitright]])
+
+-- Set language so that I can paste UTF-8 characters like so:
+-- 이 한국어를 붙였었요!
+vim.api.nvim_exec2("language en_US", {})
