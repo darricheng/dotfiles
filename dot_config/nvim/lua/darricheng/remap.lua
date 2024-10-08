@@ -45,6 +45,6 @@ vim.keymap.set("n", "<leader>cr", [[<cmd>let @+=expand("%")<CR>]], { desc = "Cop
 vim.keymap.set("n", "<leader>cd", [[<cmd>let @+=expand("%:p:h")<CR>]], { desc = "Copy directory name" })
 
 -- Map the E that I always use to Oil, so that I always open Oil anyway
-vim.api.nvim_create_user_command("E", "Oil", {})
+vim.api.nvim_create_user_command("E", "Explore", {})
 -- Similarly, :O for :Oil, because there's other commands starting with O
 vim.api.nvim_create_user_command("O", "Oil", {})
