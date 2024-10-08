@@ -2,6 +2,10 @@ return {
 	-- Git related plugins
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
+	{
+		"sindrets/diffview.nvim",
+		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+	},
 	-- NOTE: I need to learn more about git worktrees to properly use this plugin
 	{ "ThePrimeagen/git-worktree.nvim", event = "VeryLazy" },
 
