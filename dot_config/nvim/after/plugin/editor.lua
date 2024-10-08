@@ -2,7 +2,7 @@
 vim.cmd.colorscheme("catppuccin-mocha")
 
 require("no-neck-pain").setup({
-	width = 110,
+	width = 100,
 	autocmds = {
 		enableOnVimEnter = true,
 	},
