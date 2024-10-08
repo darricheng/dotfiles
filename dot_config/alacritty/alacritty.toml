@@ -5,6 +5,7 @@ program = "/opt/homebrew/bin/fish"
 
 [font]
 normal = { family = "CommitMono Nerd Font", style = "Regular" }
+size = 24
 
 [keyboard]
 bindings = [
