@@ -20,6 +20,7 @@ require("conform").setup({
 		handlebars = { "djlint" },
 		toml = { "taplo" },
 		php = { "php_cs_fixer" },
+		htmldjango = { "djlint" },
 	},
 	format_on_save = {
 		lsp_format = "fallback",
