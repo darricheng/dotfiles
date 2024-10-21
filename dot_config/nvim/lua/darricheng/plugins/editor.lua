@@ -31,7 +31,16 @@ return {
 	-- auto html tag closing
 	{
 		"windwp/nvim-ts-autotag",
-		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "html", "markdown" },
+		ft = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"svelte",
+			"html",
+			"markdown",
+			"htmldjango",
+		},
 		config = function()
 			require("nvim-ts-autotag").setup()
 		end,
