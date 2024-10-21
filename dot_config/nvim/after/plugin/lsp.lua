@@ -12,7 +12,6 @@ require("mason-lspconfig").setup({
 		"jsonls",
 		"lua_ls",
 		"marksman",
-		"prismals",
 		"basedpyright",
 		-- "ruff",
 		-- "ruff-lsp",
