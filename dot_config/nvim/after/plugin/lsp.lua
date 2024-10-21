@@ -21,12 +21,20 @@ require("mason-lspconfig").setup({
 		"taplo",
 		"ts_ls",
 		"yamlls",
+		"html",
+		"htmx",
 	},
 	handlers = {
 		lsp_zero.default_setup,
 		lua_ls = function()
 			local lua_opts = lsp_zero.nvim_lua_ls()
 			require("lspconfig").lua_ls.setup(lua_opts)
+		end,
+		html = function()
+			require("lspconfig").html.setup({
+				-- html and templ are nvim-lspconfig defaults
+				filetypes = { "html", "templ", "htmldjango" },
+			})
 		end,
 	},
 })
