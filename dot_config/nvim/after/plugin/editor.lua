@@ -56,7 +56,8 @@ require("zen-mode").setup({
 	},
 })
 
-require("notify").setup({
+local notify = require("notify")
+notify.setup({
 	-- use non-opacity changing effect so that screen doesn't flicker
 	stages = "slide",
 	max_width = 80,
@@ -68,6 +69,14 @@ require("notify").setup({
 vim.keymap.set("n", "<leader>sm", function()
 	require("telescope").extensions.notify.notify()
 end, { desc = "[M]essage [S]earch" })
+-- sometimes notifications block my work, so this is a quick
+-- shortcut to dismiss them when I need to
+vim.keymap.set("n", "<leader>nd", function()
+	notify.dismiss({
+		silent = true,
+		pending = true,
+	})
+end, { desc = "[N]otifications [D]ismiss" })
 
 require("noice").setup({
 	lsp = {
