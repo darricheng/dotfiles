@@ -48,3 +48,7 @@ vim.keymap.set("n", "<leader>cd", [[<cmd>let @+=expand("%:p:h")<CR>]], { desc = 
 vim.api.nvim_create_user_command("E", "Explore", {})
 -- Similarly, :O for :Oil, because there's other commands starting with O
 vim.api.nvim_create_user_command("O", "Oil", {})
+
+-- With glove80 kb layers, sometimes I accidentally just press <Del> in normal mode when I want to just activate a layer.
+-- I don't use the <Del> key's function anyway, so I just set it to do nothing.
+vim.keymap.set("n", "<Del>", "<Nop>")
