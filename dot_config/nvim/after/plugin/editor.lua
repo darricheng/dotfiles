@@ -63,7 +63,7 @@ notify.setup({
 	max_width = 80,
 	max_height = 24,
 	fps = 60,
-	render = "wrapped-compact",
+	render = "wrapped-default",
 })
 -- open the message history in telescope
 vim.keymap.set("n", "<leader>sm", function()
@@ -95,7 +95,7 @@ require("noice").setup({
 
 		-- false for monokai-pro, otherwise true probably works better in general,
 		-- but definitely better for catppuccin
-		lsp_doc_border = false, -- add a border to hover docs and signature help
+		lsp_doc_border = true, -- add a border to hover docs and signature help
 	},
 
 	views = {

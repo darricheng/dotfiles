@@ -127,9 +127,8 @@ cmp.setup({
 	}),
 	-- makes the windows bordered so that they clearly float on top of the editor
 	window = {
-		-- catppuccin defaults, disabled for monokai-pro
-		-- completion = cmp.config.window.bordered(),
-		-- documentation = cmp.config.window.bordered(),
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
 	},
 	-- show the source that created the completion item
 	formatting = lsp_zero.cmp_format({ details = true }),
