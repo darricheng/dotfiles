@@ -52,3 +52,18 @@ vim.api.nvim_create_user_command("O", "Oil", {})
 -- With glove80 kb layers, sometimes I accidentally just press <Del> in normal mode when I want to just activate a layer.
 -- I don't use the <Del> key's function anyway, so I just set it to do nothing.
 vim.keymap.set("n", "<Del>", "<Nop>")
+
+-- disable mouse
+vim.o.mouse = ""
+vim.opt.mousescroll = "ver:0,hor:0"
+
+-- disable arrow keys
+-- also disables mouse scrolling
+vim.keymap.set("", "<up>", "<nop>", { noremap = true })
+vim.keymap.set("", "<down>", "<nop>", { noremap = true })
+vim.keymap.set("", "<left>", "<nop>", { noremap = true })
+vim.keymap.set("", "<right>", "<nop>", { noremap = true })
+vim.keymap.set("i", "<up>", "<nop>", { noremap = true })
+vim.keymap.set("i", "<down>", "<nop>", { noremap = true })
+vim.keymap.set("i", "<left>", "<nop>", { noremap = true })
+vim.keymap.set("i", "<right>", "<nop>", { noremap = true })
