@@ -22,6 +22,7 @@ require("mason-lspconfig").setup({
 		"yamlls",
 		"html",
 		"htmx",
+		"elixirls",
 	},
 	handlers = {
 		lsp_zero.default_setup,

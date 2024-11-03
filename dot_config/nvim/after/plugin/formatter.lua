@@ -21,6 +21,7 @@ require("conform").setup({
 		toml = { "taplo" },
 		php = { "php_cs_fixer" },
 		htmldjango = { "djlint" },
+		elixir = { "mix" },
 	},
 	format_on_save = {
 		lsp_format = "fallback",
