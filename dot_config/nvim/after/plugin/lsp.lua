@@ -21,6 +21,7 @@ require("mason-lspconfig").setup({
 		"ts_ls",
 		"yamlls",
 		"html",
+		"tailwindcss",
 		"htmx",
 		"elixirls",
 	},
@@ -34,6 +35,16 @@ require("mason-lspconfig").setup({
 			require("lspconfig").html.setup({
 				-- html and templ are nvim-lspconfig defaults
 				filetypes = { "html", "templ", "htmldjango" },
+			})
+		end,
+		tailwindcss = function()
+			require("lspconfig").tailwindcss.setup({
+				init_options = {
+					userLanguages = {
+						heex = "html-eex",
+						elixir = "html-eex",
+					},
+				},
 			})
 		end,
 	},

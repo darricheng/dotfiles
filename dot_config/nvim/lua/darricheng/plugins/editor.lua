@@ -40,9 +40,15 @@ return {
 			"html",
 			"markdown",
 			"htmldjango",
+			"elixir",
+			"heex",
 		},
 		config = function()
-			require("nvim-ts-autotag").setup()
+			require("nvim-ts-autotag").setup({
+				aliases = {
+					["heex"] = "html",
+				},
+			})
 		end,
 	},
 	-- more expressive undos
