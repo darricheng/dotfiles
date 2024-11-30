@@ -22,6 +22,8 @@ require("nvim-treesitter.configs").setup({
 		"css",
 		"just",
 		"fish",
+		"elixir",
+		"heex",
 	},
 	sync_install = false,
 	-- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
