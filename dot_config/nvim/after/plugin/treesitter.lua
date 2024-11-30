@@ -87,6 +87,11 @@ require("nvim-treesitter.configs").setup({
 			},
 		},
 	},
+
+	-- auto add `end` keyword
+	endwise = {
+		enable = true,
+	},
 })
 
 -- [[ Configure Treesitter Context ]]

@@ -87,6 +87,7 @@ return {
 		"nvim-treesitter/playground",
 		event = "VeryLazy",
 	},
+	"RRethy/nvim-treesitter-endwise",
 
 	-- pick out errors easily
 	{
