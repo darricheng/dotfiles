@@ -14,8 +14,6 @@ fish_add_path ~/.cargo/bin
 fish_add_path /opt/homebrew/opt/postgresql@16/bin
 # make go binaries available on path
 fish_add_path (go env GOPATH)/bin
-# Make brew's binutils available to the system
-fish_add_path /opt/homebrew/opt/binutils/bin
 # Use the homebrew-installed ruby instead of the one installed in macos by default
 fish_add_path /opt/homebrew/opt/ruby/bin
 # add packages installed by mason in Neovim

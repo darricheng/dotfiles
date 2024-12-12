@@ -131,8 +131,6 @@ export EDITOR="nvim"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 # make go binaries available on path
 export PATH="$(go env GOPATH)/bin:$PATH"
-# Make brew's binutils available to the system
-export PATH="/opt/homebrew/opt/binutils/bin:$PATH"
 # Use the homebrew-installed ruby instead of the one installed in macos by default
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 # add packages installed by mason in Neovim
