@@ -17,6 +17,7 @@ abbr -a t tmux
 abbr -a tk tmux list-keys
 abbr -a f fzf
 abbr -a man batman
+abbr -a j just
 
 # git
 abbr -a g git
