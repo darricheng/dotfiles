@@ -22,7 +22,6 @@ require("mason-lspconfig").setup({
 		"yamlls",
 		"html",
 		"tailwindcss",
-		"htmx",
 		"elixirls",
 	},
 	handlers = {
