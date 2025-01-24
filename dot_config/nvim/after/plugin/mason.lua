@@ -4,6 +4,7 @@ require("mason-tool-installer").setup({
 	-- NOTE: LSPs are handled separately in lsp.lua, DAPs in dap.lua
 	-- TODO: Consolidate all the tool installation into this file?
 	ensure_installed = {
+		"clang-format",
 		-- javascript / typescript
 		"prettierd",
 		-- lua

@@ -35,6 +35,9 @@ abbr -a gl git log
 abbr -a gpl git pull
 abbr -a gb git branch
 
+# reload config
+abbr -a reload-config source ~/.config/fish/**/*.fish
+
 # For ... to go up parent dirs n times
 function multicd
     echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
