@@ -1,4 +1,4 @@
-local prettier = { { "prettierd", "prettier" } }
+local prettier = { "prettierd", "prettier", stop_after_first = true }
 
 require("conform").setup({
 	formatters_by_ft = {
