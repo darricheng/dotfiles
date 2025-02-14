@@ -19,6 +19,10 @@ abbr -a f fzf
 abbr -a man batman
 abbr -a j just
 
+# homebrew gcc
+abbr -a hgcc /opt/homebrew/bin/gcc-14
+abbr -a hg++ /opt/homebrew/bin/g++-14
+
 # git
 abbr -a g git
 abbr -a gs git status
