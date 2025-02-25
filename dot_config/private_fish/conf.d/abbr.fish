@@ -3,7 +3,7 @@ abbr -a cz chezmoi
 abbr -a czg chezmoi git
 abbr -a czgs chezmoi git status
 abbr -a czgaa chezmoi git add .
-abbr -a czgc --set-cursor chezmoi git -- commit -m \"%\"
+abbr -a czgc chezmoi git -- commit -v
 abbr -a zshrc chezmoi edit --apply ~/.zshrc
 abbr -a nconf chezmoi edit --apply ~/.config/nvim
 abbr -a tconf chezmoi edit --apply ~/.config/tmux
@@ -29,8 +29,7 @@ abbr -a gs git status
 abbr -a gd git diff
 abbr -a ga git add
 abbr -a gaa git add --all
-abbr -a gc --set-cursor git commit -m \"%\"
-abbr -a gcv git commit --verbose
+abbr -a gc git commit -v
 abbr -a gco git checkout
 abbr -a gsw git switch
 abbr -a gpu git push
