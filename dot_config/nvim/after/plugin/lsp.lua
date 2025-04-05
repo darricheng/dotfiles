@@ -3,7 +3,6 @@ local lsp = vim.lsp
 local tele = require("telescope.builtin")
 
 -- setup and install language servers
-require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"clangd",
