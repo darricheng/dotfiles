@@ -1,4 +1,5 @@
 local prettier = { "prettierd", "prettier", stop_after_first = true }
+local mix = { "mix", timeout_ms = 2500 }
 
 require("conform").setup({
 	formatters_by_ft = {
@@ -29,10 +30,10 @@ require("conform").setup({
 		handlebars = { "djlint" },
 
 		-- Elixir
-		elixir = { "mix" },
-		eelixir = { "mix" },
-		heex = { "mix" },
-		surface = { "mix" },
+		elixir = mix,
+		eelixir = mix,
+		heex = mix,
+		surface = mix,
 	},
 	format_on_save = {
 		lsp_format = "fallback",
