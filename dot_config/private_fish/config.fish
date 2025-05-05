@@ -4,6 +4,7 @@ end
 
 # Env vars
 set -gx EDITOR nvim
+set -Ux MANPAGER 'nvim +Man!'
 
 # Additions to PATH
 # homebrew
