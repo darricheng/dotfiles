@@ -9,7 +9,9 @@ return {
 				lua = { "stylua" },
 				c = { "clang_format" },
 				cpp = { "clang_format" },
-				rust = { "rustfmt" },
+				-- rust-analyzer uses rustfmt under the hood
+				-- leptosfmt also needs to use rust-analyzer directly
+				-- rust = { "rustfmt" },
 				go = { "goimports" },
 				python = { "black" },
 				toml = { "taplo" },
@@ -48,7 +50,7 @@ return {
 			{
 				"<leader>f",
 				function()
-					require("conform").format()
+					require("conform").format({ lsp_format = "fallback" })
 				end,
 				silent = true,
 				noremap = true,
