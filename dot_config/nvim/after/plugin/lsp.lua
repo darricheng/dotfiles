@@ -35,6 +35,19 @@ require("mason-lspconfig").setup({
 				filetypes = { "html", "templ", "htmldjango" },
 			})
 		end,
+		rust_analyzer = function()
+			require("lspconfig").rust_analyzer.setup({
+				procMacro = {
+					ignored = {
+						leptos_macro = {
+							-- optional: --
+							-- "component",
+							"server",
+						},
+					},
+				},
+			})
+		end,
 		tailwindcss = function()
 			require("lspconfig").tailwindcss.setup({
 				init_options = {
