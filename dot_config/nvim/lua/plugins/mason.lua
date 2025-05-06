@@ -27,8 +27,6 @@ return {
 				-- bash
 				"shellcheck", -- linter
 				"shfmt", -- formatter
-				-- spelling linter
-				"misspell",
 				-- python
 				"black",
 			},
