@@ -1,9 +1,17 @@
 return {
+	-- Mason
+	{
+		"williamboman/mason.nvim",
+		config = true,
+		opts = {},
+	},
+	{ "williamboman/mason-lspconfig.nvim" },
+
+	-- LSP
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
 	},
-	-- LSP
 	"neovim/nvim-lspconfig",
 	{
 		"stevearc/aerial.nvim",

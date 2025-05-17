@@ -3,7 +3,6 @@ local lsp = vim.lsp
 local tele = require("telescope.builtin")
 
 -- setup and install language servers
-require("mason").setup({})
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"clangd",
@@ -34,6 +33,19 @@ require("mason-lspconfig").setup({
 			require("lspconfig").html.setup({
 				-- html and templ are nvim-lspconfig defaults
 				filetypes = { "html", "templ", "htmldjango" },
+			})
+		end,
+		rust_analyzer = function()
+			require("lspconfig").rust_analyzer.setup({
+				procMacro = {
+					ignored = {
+						leptos_macro = {
+							-- optional: --
+							-- "component",
+							"server",
+						},
+					},
+				},
 			})
 		end,
 		tailwindcss = function()
