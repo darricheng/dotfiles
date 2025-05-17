@@ -16,7 +16,6 @@ abbr -a view nvim -R # by default, `view` runs `vim -R`
 abbr -a t tmux
 abbr -a tk tmux list-keys
 abbr -a f fzf
-abbr -a man batman
 abbr -a j just
 
 # homebrew gcc
