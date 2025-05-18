@@ -3,8 +3,11 @@ return {
 		"folke/snacks.nvim",
 		opts = {
 			picker = {},
+			-- TODO: would like to switch over to this if there's a proper integration for Noice
+			-- notifier = {},
 		},
 		keys = {
+			-- NOTE: Picker keys
 			-- Top Pickers & Explorer
 			{
 				"<leader><space>",
@@ -26,13 +29,6 @@ return {
 					Snacks.picker.command_history()
 				end,
 				desc = "Command History",
-			},
-			{
-				"<leader>n",
-				function()
-					Snacks.picker.notifications()
-				end,
-				desc = "Notification History",
 			},
 			-- find
 			{

@@ -179,7 +179,25 @@ return {
 			{
 				"<leader>sn",
 				function()
-					require("telescope").extensions.notify.notify()
+					local history = require("notify").history()
+
+					local items = {} ---@type snacks.picker.finder.Item[]
+
+					-- TODO: create a search through the history
+					for i, record in ipairs(history) do
+						---@type snacks.picker.finder.Item
+						local new_item = {
+							idx = i,
+							score = i,
+							text = record.message[1],
+							name = record.time,
+						}
+						table.insert(items, new_item)
+					end
+
+					Snacks.picker({
+						items = items,
+					})
 				end,
 				desc = "[S]earch [N]otifications",
 			},
