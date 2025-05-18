@@ -15,21 +15,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "gd", tele.lsp_definitions, "[G]oto [D]efinition")
 		map("n", "go", tele.lsp_type_definitions, "[G]oto Type Definition")
 		map("n", "gD", lsp.buf.declaration, "[G]oto [D]eclaration")
-		map("n", "gI", tele.lsp_implementations, "[G]oto [I]mplementation")
-		map("n", "gr", tele.lsp_references, "[G]oto [R]eferences")
 		map("n", "gs", lsp.buf.signature_help, "[G]oto [S]ignature")
 
-		-- Useful lsp actions
-		map("n", "<leader>rn", lsp.buf.rename, "[R]e[N]ame")
-		map("n", "<leader>ca", lsp.buf.code_action, "[C]ode [A]ction")
+		-- overwrites the neovim defaults
+		map("n", "gri", tele.lsp_implementations, "[G]oto [I]mplementation")
+		map("n", "grr", tele.lsp_references, "[G]oto [R]eferences")
+
+		-- These have neovim defaults now
+		-- grr
+		-- map("n", "<leader>rn", lsp.buf.rename, "[R]e[N]ame")
+		-- gra
+		-- map("n", "<leader>ca", lsp.buf.code_action, "[C]ode [A]ction")
 
 		-- File navigation
 		map("n", "<leader>o", "<cmd>AerialToggle!<cr>", "[O]utline")
 
 		-- Diagnostics
 		map("n", "gl", vim.diagnostic.open_float, "Open diagnostic float")
-		map("n", "]d", vim.diagnostic.goto_next, "Jump to the next diagnostic")
-		map("n", "[d", vim.diagnostic.goto_prev, "Jump to the previous diagnostic")
+		map("n", "]d", vim.diagnostic.get_next, "Jump to the next diagnostic")
+		map("n", "[d", vim.diagnostic.get_prev, "Jump to the previous diagnostic")
 
 		-- search symbols
 		map("n", "<leader>Sd", require("telescope.builtin").lsp_document_symbols, "[S]ymbols: [D]ocument")
