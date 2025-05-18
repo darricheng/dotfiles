@@ -127,7 +127,10 @@ return {
 	{
 		"folke/todo-comments.nvim",
 		event = require("plugins.utils.events").lazy_file,
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"folke/snacks.nvim", -- for searching with snacks picker
+		},
 		opts = {},
 		keys = {
 			{
@@ -143,6 +146,13 @@ return {
 					require("todo-comments").jump_prev()
 				end,
 				desc = "Previous todo comment",
+			},
+			{
+				"<leader>st",
+				function()
+					Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
+				end,
+				desc = "Todo/Fix/Fixme",
 			},
 		},
 	},

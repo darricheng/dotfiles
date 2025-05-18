@@ -48,7 +48,7 @@ return {
 		event = require("plugins.utils.events").lazy_file,
 		keys = {
 			{
-				"<leader>f",
+				"<leader>F",
 				function()
 					require("conform").format({ lsp_format = "fallback" })
 				end,

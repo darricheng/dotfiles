@@ -11,7 +11,7 @@ return {
 			-- load the colorscheme here
 			require("monokai-pro").setup({
 				-- NOTE: this doesn't seem to be working yet
-				background_clear = { "float_win", "telescope" },
+				background_clear = { "float_win" },
 			})
 			vim.cmd([[colorscheme monokai-pro]])
 		end,
