@@ -5,13 +5,12 @@ return {
 		config = true,
 		opts = {},
 	},
-	{ "williamboman/mason-lspconfig.nvim" },
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = true,
+	},
 
 	-- LSP
-	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
-	},
 	"neovim/nvim-lspconfig",
 	{
 		"stevearc/aerial.nvim",
