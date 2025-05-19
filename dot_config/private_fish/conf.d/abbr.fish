@@ -32,7 +32,7 @@ abbr -a gc git commit -v
 abbr -a gco git checkout
 abbr -a gsw git switch
 abbr -a gpu git push
-abbr -a gf git fetch
+abbr -a gf git fetch -p
 abbr -a gl git log
 abbr -a gpl git pull
 abbr -a gb git branch
