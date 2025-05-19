@@ -240,6 +240,9 @@ return {
 		},
 	},
 	{
+		-- TODO: replace with snacks.nvim?
+		-- See repository README
+		-- My code action picker is broken. It should have been from this plugin.
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
 		opts = {},
