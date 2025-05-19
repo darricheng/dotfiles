@@ -50,3 +50,10 @@ vim.cmd([[set splitright]])
 -- Set language so that I can paste UTF-8 characters like so:
 -- 이 한국어를 붙였었요!
 vim.api.nvim_exec2("language en_US", {})
+
+-- show diagnostic in float with borders
+-- For the "gl", "[d", and "]d" shortcuts
+vim.diagnostic.config({
+	float = { border = "rounded" },
+	jump = { float = true },
+})

@@ -17,11 +17,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- File navigation
 		map("n", "<leader>o", "<cmd>AerialToggle!<cr>", "[O]utline")
 
-		-- Diagnostics
-		map("n", "gl", vim.diagnostic.open_float, "Open diagnostic float")
-		map("n", "]d", vim.diagnostic.get_next, "Jump to the next diagnostic")
-		map("n", "[d", vim.diagnostic.get_prev, "Jump to the previous diagnostic")
-
 		-- Lesser used LSP functionality
 		map("n", "<leader>wa", lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
 		map("n", "<leader>wr", lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
