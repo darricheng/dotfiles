@@ -1,6 +1,7 @@
 local lsp_zero = require("lsp-zero")
 local lsp = vim.lsp
 local tele = require("telescope.builtin")
+local lspconfig = require("lspconfig")
 
 -- setup and install language servers
 require("mason").setup({})
@@ -28,20 +29,30 @@ require("mason-lspconfig").setup({
 		lsp_zero.default_setup,
 		lua_ls = function()
 			local lua_opts = lsp_zero.nvim_lua_ls()
-			require("lspconfig").lua_ls.setup(lua_opts)
+			lspconfig.lua_ls.setup(lua_opts)
 		end,
 		html = function()
-			require("lspconfig").html.setup({
+			lspconfig.html.setup({
 				-- html and templ are nvim-lspconfig defaults
 				filetypes = { "html", "templ", "htmldjango" },
 			})
 		end,
+		htmx = function() end,
 		tailwindcss = function()
-			require("lspconfig").tailwindcss.setup({
+			lspconfig.tailwindcss.setup({
 				init_options = {
 					userLanguages = {
 						heex = "html-eex",
 						elixir = "html-eex",
+					},
+				},
+			})
+		end,
+		ts_ls = function()
+			lspconfig.ts_ls.setup({
+				init_options = {
+					preferences = {
+						preferTypeOnlyAutoImports = true,
 					},
 				},
 			})
