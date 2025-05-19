@@ -21,13 +21,19 @@ return {
 				changedelete = { text = "~" },
 			},
 			on_attach = function(bufnr)
-				vim.keymap.set(
-					"n",
-					"[c",
-					require("gitsigns").prev_hunk,
-					{ buffer = bufnr, desc = "Go to Previous Hunk" }
-				)
-				vim.keymap.set("n", "]c", require("gitsigns").next_hunk, { buffer = bufnr, desc = "Go to Next Hunk" })
+				local gitsigns = require("gitsigns")
+
+				-- goto prev hunk
+				vim.keymap.set("n", "[c", function()
+					gitsigns.nav_hunk("prev")
+				end, { buffer = bufnr, desc = "Go to Previous Hunk" })
+
+				-- goto next hunk
+				vim.keymap.set("n", "]c", function()
+					gitsigns.nav_hunk("next")
+				end, { buffer = bufnr, desc = "Go to Next Hunk" })
+
+				-- view git diff
 				vim.keymap.set(
 					"n",
 					"<leader>gd",
@@ -35,6 +41,9 @@ return {
 					{ buffer = bufnr, desc = "[G]it [D]iff" }
 				)
 			end,
+			preview_config = {
+				border = "rounded",
+			},
 		},
 	},
 
