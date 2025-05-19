@@ -1,7 +1,9 @@
 return {
 	{
 		"folke/snacks.nvim",
+		---@type snacks.Config
 		opts = {
+			input = {},
 			picker = {},
 			-- TODO: would like to switch over to this if there's a proper integration for Noice
 			-- notifier = {},
