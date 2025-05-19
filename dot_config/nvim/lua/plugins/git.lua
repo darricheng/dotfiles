@@ -1,7 +1,7 @@
 return {
 	{
 		"tpope/vim-fugitive",
-		cmd = { "Git", "G" },
+		cmd = { "Git", "G", "Gwrite" },
 	},
 	"tpope/vim-rhubarb",
 	{
