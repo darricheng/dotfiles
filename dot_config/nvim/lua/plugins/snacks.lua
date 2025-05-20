@@ -4,6 +4,8 @@ return {
 		---@type snacks.Config
 		opts = {
 			input = {},
+			-- TODO: Change keymaps that use the meta key
+			-- See: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#%EF%B8%8F-config
 			picker = {},
 			-- TODO: would like to switch over to this if there's a proper integration for Noice
 			-- notifier = {},
