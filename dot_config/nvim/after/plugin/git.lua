@@ -1,3 +1,5 @@
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Git status" })
-
-require("telescope").load_extension("git_worktree")
+vim.api.nvim_create_user_command("Gc", function()
+	vim.cmd([[G commit -v]])
+end, {
+	desc = "Git commit verbose",
+})

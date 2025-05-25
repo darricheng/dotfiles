@@ -9,6 +9,7 @@ abbr -a nconf chezmoi edit --apply ~/.config/nvim
 abbr -a tconf chezmoi edit --apply ~/.config/tmux
 abbr -a fconf chezmoi edit --apply ~/.config/fish
 abbr -a aconf chezmoi edit --apply ~/.config/alacritty
+abbr -a update-nvim-lazy-lock chezmoi add ~/.config/nvim/lazy-lock.json 
 
 # common cli tools
 abbr -a n nvim
@@ -32,7 +33,7 @@ abbr -a gc git commit -v
 abbr -a gco git checkout
 abbr -a gsw git switch
 abbr -a gpu git push
-abbr -a gf git fetch
+abbr -a gf git fetch -p
 abbr -a gl git log
 abbr -a gpl git pull
 abbr -a gb git branch

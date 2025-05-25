@@ -1,165 +1,57 @@
-local lsp_zero = require("lsp-zero")
 local lsp = vim.lsp
-local tele = require("telescope.builtin")
-local lspconfig = require("lspconfig")
 
--- setup and install language servers
-require("mason").setup({})
-require("mason-lspconfig").setup({
-	ensure_installed = {
-		"clangd",
-		"eslint",
-		"gopls",
-		"jsonls",
-		"lua_ls",
-		"marksman",
-		"basedpyright",
-		-- "ruff",
-		-- "ruff-lsp",
-		"rust_analyzer",
-		"svelte",
-		"taplo",
-		"ts_ls",
-		"yamlls",
-		"html",
-		"tailwindcss",
-		"elixirls",
-	},
-	handlers = {
-		lsp_zero.default_setup,
-		lua_ls = function()
-			local lua_opts = lsp_zero.nvim_lua_ls()
-			lspconfig.lua_ls.setup(lua_opts)
-		end,
-		html = function()
-			lspconfig.html.setup({
-				-- html and templ are nvim-lspconfig defaults
-				filetypes = { "html", "templ", "htmldjango" },
-			})
-		end,
-		htmx = function() end,
-		tailwindcss = function()
-			lspconfig.tailwindcss.setup({
-				init_options = {
-					userLanguages = {
-						heex = "html-eex",
-						elixir = "html-eex",
-					},
-				},
-			})
-		end,
-		ts_ls = function()
-			lspconfig.ts_ls.setup({
-				init_options = {
-					preferences = {
-						preferTypeOnlyAutoImports = true,
-					},
-				},
-			})
-		end,
-	},
-})
-
--- lsp functionality keymaps
-lsp_zero.on_attach(function(_, bufnr)
-	-- function to reduce boilerplate for setting keymaps
-	local map = function(mode, keys, func, desc)
-		if desc then
-			desc = "LSP: " .. desc
+vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "LSP actions",
+	callback = function(event)
+		local map = function(mode, keys, func, desc)
+			if desc then
+				desc = "LSP: " .. desc
+			end
+			vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
 		end
-		vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
-	end
 
-	-- Goto keymaps
-	map("n", "gd", tele.lsp_definitions, "[G]oto [D]efinition")
-	map("n", "go", tele.lsp_type_definitions, "[G]oto Type Definition")
-	map("n", "gD", lsp.buf.declaration, "[G]oto [D]eclaration")
-	map("n", "gI", tele.lsp_implementations, "[G]oto [I]mplementation")
-	map("n", "gr", tele.lsp_references, "[G]oto [R]eferences")
-	map("n", "gs", lsp.buf.signature_help, "[G]oto [S]ignature")
+		-- Goto keymaps
+		map("n", "gD", lsp.buf.declaration, "[G]oto [D]eclaration")
+		map("n", "gs", lsp.buf.signature_help, "[G]oto [S]ignature")
 
-	-- Useful lsp actions
-	map("n", "<leader>rn", lsp.buf.rename, "[R]e[N]ame")
-	map("n", "<leader>ca", lsp.buf.code_action, "[C]ode [A]ction")
+		-- File navigation
+		map("n", "<leader>o", "<cmd>AerialToggle!<cr>", "[O]utline")
 
-	-- File navigation
-	map("n", "<leader>o", "<cmd>AerialToggle!<cr>", "[O]utline")
-
-	-- Diagnostics
-	map("n", "gl", vim.diagnostic.open_float, "Open diagnostic float")
-	map("n", "]d", vim.diagnostic.goto_next, "Jump to the next diagnostic")
-	map("n", "[d", vim.diagnostic.goto_prev, "Jump to the previous diagnostic")
-
-	-- search symbols
-	map("n", "<leader>Sd", require("telescope.builtin").lsp_document_symbols, "[S]ymbols: [D]ocument")
-	map("n", "<leader>Sw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[S]ymbols: [W]orkspace")
-
-	-- Lesser used LSP functionality
-	map("n", "<leader>wa", lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
-	map("n", "<leader>wr", lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
-	map("n", "<leader>wl", function()
-		print(vim.inspect(lsp.buf.list_workspace_folders()))
-	end, "[W]orkspace [L]ist Folders")
-end)
-
--- Load FriendlySnippets
-require("luasnip.loaders.from_vscode").lazy_load()
-
--- autocompletion
-local cmp = require("cmp")
-
-local function select_next()
-	if cmp.visible() then
-		cmp.select_next_item({ behavior = "select" })
-	else
-		cmp.complete()
-	end
-end
-local function select_prev()
-	if cmp.visible() then
-		cmp.select_prev_item({ behavior = "select" })
-	else
-		cmp.complete()
-	end
-end
-
-cmp.setup({
-	sources = {
-		{
-			name = "lazydev",
-			-- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
-			group_index = 0,
-		},
-		{ name = "path" },
-		{ name = "nvim_lsp" },
-		{ name = "buffer", keyword_length = 3 },
-		{ name = "luasnip", keyword_length = 2 },
-	},
-	mapping = cmp.mapping.preset.insert({
-		["<C-n>"] = cmp.mapping(select_next),
-		["<C-j>"] = cmp.mapping(select_next),
-		["<C-p>"] = cmp.mapping(select_prev),
-		["<C-k>"] = cmp.mapping(select_prev),
-		["<C-y>"] = cmp.mapping.confirm({
-			-- selects the first item if none are selected
-			select = true,
-		}),
-		["<C-u>"] = cmp.mapping.scroll_docs(-4),
-		["<C-d>"] = cmp.mapping.scroll_docs(4),
-	}),
-	-- makes the windows bordered so that they clearly float on top of the editor
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
-	-- show the source that created the completion item
-	formatting = lsp_zero.cmp_format({ details = true }),
+		-- Lesser used LSP functionality
+		map("n", "<leader>wa", lsp.buf.add_workspace_folder, "[W]orkspace [A]dd Folder")
+		map("n", "<leader>wr", lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
+		map("n", "<leader>wl", function()
+			print(vim.inspect(lsp.buf.list_workspace_folders()))
+		end, "[W]orkspace [L]ist Folders")
+	end,
 })
 
--- setup vim.dadbod
-cmp.setup.filetype({ "sql" }, {
-	sources = {
-		{ name = "vim-dadbod-completion" },
-		{ name = "buffer" },
-	},
+vim.api.nvim_create_user_command("LspRestart", function()
+	local clients = vim.lsp.get_clients()
+
+	-- #foo gets the length of the table elements that don't have keys
+	if #clients < 1 then
+		vim.notify("No clients to restart", vim.log.levels.WARN)
+		return
+	end
+
+	local clients_list = ""
+
+	---disable the lint of the unused variable i
+	---@diagnostic disable-next-line: unused-local
+	for i, client in ipairs(clients) do
+		clients_list = clients_list .. "- " .. client.name .. "\n"
+	end
+
+	-- Space between \n needed, otherwise they collapse into a single line break
+	vim.notify("Restarting clients:\n \n" .. clients_list, vim.log.levels.INFO)
+
+	-- :h lsp-faq
+	lsp.stop_client(clients)
+	vim.defer_fn(function()
+		vim.cmd("edit")
+	end, 500) -- timeout needed otherwise LSP doesn't seem to restart
+end, {
+	desc = "Restart attached LSPs",
+	force = true, -- to replace the command from lspconfig
 })

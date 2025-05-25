@@ -10,7 +10,7 @@ vim.wo.number = true
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.o.clipboard = "unnamedplus"
+-- vim.o.clipboard = "unnamedplus"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -42,7 +42,6 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 16
 
 -- Set vertical split to open on the right by default
 vim.cmd([[set splitright]])
@@ -50,3 +49,10 @@ vim.cmd([[set splitright]])
 -- Set language so that I can paste UTF-8 characters like so:
 -- 이 한국어를 붙였었요!
 vim.api.nvim_exec2("language en_US", {})
+
+-- show diagnostic in float with borders
+-- For the "gl", "[d", and "]d" shortcuts
+vim.diagnostic.config({
+	float = { border = "rounded" },
+	jump = { float = true },
+})
