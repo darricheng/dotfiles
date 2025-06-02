@@ -21,6 +21,7 @@ return {
 				widthDown = "<leader>n-",
 				-- toggle the scratchpad feature.
 				scratchPad = "<leader>ns",
+				debug = "<Leader>nD",
 			},
 		},
 		keys = {
@@ -179,12 +180,19 @@ return {
 			{
 				"<leader>nd",
 				function()
+					vim.notify("Use <leader>Dn instead", vim.log.levels.WARN)
+				end,
+				desc = "(DEPRECATED) [N]otifications [D]ismiss",
+			},
+			{
+				"<leader>Dn",
+				function()
 					require("notify").dismiss({
 						silent = true,
 						pending = true,
 					})
 				end,
-				desc = "[N]otifications [D]ismiss",
+				desc = "[D]ismiss [N]otifications",
 			},
 		},
 	},
