@@ -48,7 +48,11 @@ vim.cmd([[set splitright]])
 
 -- Set language so that I can paste UTF-8 characters like so:
 -- 이 한국어를 붙였었요!
-vim.api.nvim_exec2("language en_US", {})
+-- The important bit seems to be the part after the period, i.e. `UTF-8`.
+-- Without it, when using `en_US`, and with the clipboard synced, it worked.
+-- But without sync, i.e. need to use the + register to paste clipboard text,
+-- the "+p command pasted `???`.
+vim.api.nvim_exec2("language en_SG.UTF-8", {})
 
 -- show diagnostic in float with borders
 -- For the "gl", "[d", and "]d" shortcuts
