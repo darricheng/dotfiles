@@ -1,5 +1,6 @@
 # dotfiles/chezmoi
 abbr -a cz chezmoi
+abbr -a czcd chezmoi cd
 abbr -a czg chezmoi git
 abbr -a czgs chezmoi git status
 abbr -a czgaa chezmoi git add .
