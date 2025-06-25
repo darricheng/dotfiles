@@ -1,10 +1,17 @@
 local prettier = { "prettierd", "prettier", stop_after_first = true }
+local biome_prettier = { "biome", "prettierd", "prettier", stop_after_first = true }
+
 local mix = { "mix", timeout_ms = 2500 }
 
 return {
 	{
 		"stevearc/conform.nvim",
 		opts = {
+			formatters = {
+				biome = {
+					require_cwd = true,
+				},
+			},
 			formatters_by_ft = {
 				lua = { "stylua" },
 				c = { "clang_format" },
@@ -16,18 +23,18 @@ return {
 				python = { "black" },
 				toml = { "taplo" },
 				php = { "php_cs_fixer" },
-				json = prettier,
-				markdown = prettier,
+				json = biome_prettier,
+				markdown = biome_prettier,
 
 				-- Web
-				html = prettier,
-				css = prettier,
+				html = biome_prettier,
+				css = biome_prettier,
 
 				-- JS/TS
-				javascript = prettier,
-				typescript = prettier,
-				typescriptreact = prettier,
-				javascriptreact = prettier,
+				javascript = biome_prettier,
+				typescript = biome_prettier,
+				typescriptreact = biome_prettier,
+				javascriptreact = biome_prettier,
 				svelte = prettier,
 
 				-- templating languages

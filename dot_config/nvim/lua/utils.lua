@@ -1,6 +1,6 @@
 local M = {}
 
----Joins an
+---Joins a list of strings
 ---@param array string[]
 ---@param separator string
 ---@return string
