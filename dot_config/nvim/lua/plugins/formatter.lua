@@ -24,7 +24,7 @@ return {
 				toml = { "taplo" },
 				php = { "php_cs_fixer" },
 				json = biome_prettier,
-				markdown = biome_prettier,
+				markdown = prettier,
 
 				-- Web
 				html = biome_prettier,
