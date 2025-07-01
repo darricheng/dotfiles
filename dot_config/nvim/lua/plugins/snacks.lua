@@ -6,7 +6,13 @@ return {
 			input = {},
 			-- TODO: Change keymaps that use the meta key
 			-- See: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#%EF%B8%8F-config
-			picker = {},
+			picker = {
+				main = {
+					-- When using picker from Oil, this ensures the same buffer is used even
+					-- if a vertically split pane is open.
+					file = false,
+				},
+			},
 			-- TODO: would like to switch over to this if there's a proper integration for Noice
 			-- notifier = {},
 		},
