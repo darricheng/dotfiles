@@ -57,6 +57,6 @@ vim.api.nvim_exec2("language en_SG.UTF-8", {})
 -- show diagnostic in float with borders
 -- For the "gl", "[d", and "]d" shortcuts
 vim.diagnostic.config({
-	float = { border = "rounded" },
+	float = { border = "rounded", source = true },
 	jump = { float = true },
 })
