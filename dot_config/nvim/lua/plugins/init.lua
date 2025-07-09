@@ -4,6 +4,9 @@ return {
 	"tpope/vim-sleuth",
 
 	-- Useful plugin to show you pending keybinds.
+	-- BUG: Apparently, this plugin causes issues with ctrl-o from insert mode.
+	-- See issue: https://github.com/folke/which-key.nvim/issues/827#issue-2477918033
+	-- See for possible fix: https://github.com/folke/which-key.nvim/pull/879
 	{ "folke/which-key.nvim", opts = {} },
 	{
 		-- Set lualine as statusline
