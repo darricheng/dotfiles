@@ -26,32 +26,32 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.api.nvim_create_user_command("LspRestart", function()
-	local clients = vim.lsp.get_clients()
-
-	-- #foo gets the length of the table elements that don't have keys
-	if #clients < 1 then
-		vim.notify("No clients to restart", vim.log.levels.WARN)
-		return
-	end
-
-	local clients_list = ""
-
-	---disable the lint of the unused variable i
-	---@diagnostic disable-next-line: unused-local
-	for i, client in ipairs(clients) do
-		clients_list = clients_list .. "- " .. client.name .. "\n"
-	end
-
-	-- Space between \n needed, otherwise they collapse into a single line break
-	vim.notify("Restarting clients:\n \n" .. clients_list, vim.log.levels.INFO)
-
-	-- :h lsp-faq
-	lsp.stop_client(clients)
-	vim.defer_fn(function()
-		vim.cmd("edit")
-	end, 500) -- timeout needed otherwise LSP doesn't seem to restart
-end, {
-	desc = "Restart attached LSPs",
-	force = true, -- to replace the command from lspconfig
-})
+-- vim.api.nvim_create_user_command("LspRestart", function()
+-- 	local clients = vim.lsp.get_clients()
+--
+-- 	-- #foo gets the length of the table elements that don't have keys
+-- 	if #clients < 1 then
+-- 		vim.notify("No clients to restart", vim.log.levels.WARN)
+-- 		return
+-- 	end
+--
+-- 	local clients_list = ""
+--
+-- 	---disable the lint of the unused variable i
+-- 	---@diagnostic disable-next-line: unused-local
+-- 	for i, client in ipairs(clients) do
+-- 		clients_list = clients_list .. "- " .. client.name .. "\n"
+-- 	end
+--
+-- 	-- Space between \n needed, otherwise they collapse into a single line break
+-- 	vim.notify("Restarting clients:\n \n" .. clients_list, vim.log.levels.INFO)
+--
+-- 	-- :h lsp-faq
+-- 	lsp.stop_client(clients)
+-- 	vim.defer_fn(function()
+-- 		vim.cmd("edit")
+-- 	end, 500) -- timeout needed otherwise LSP doesn't seem to restart
+-- end, {
+-- 	desc = "Restart attached LSPs",
+-- 	force = true, -- to replace the command from lspconfig
+-- })
