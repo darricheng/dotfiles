@@ -53,5 +53,15 @@ abbr -a dotdot --regex '^\.\.+$' --function multicd
 # The sleep function call can be changed to something that shows a timer bar, like https://github.com/caarlos0/timer
 # I don't want to use the above package because it's a third-party homebrew tap.
 # I can even create a simple CLI using the [indicatif crate](https://docs.rs/indicatif/latest/indicatif/) for the progress bar.
-abbr -a work sleep 25m && osascript -e 'display notification "Get some good work done!" with title "Time to work" sound name "Glass"'
-abbr -a rest sleep 5m && osascript -e 'display notification "Rest up before the next session" with title "Break time!" sound name "Glass"'
+function work_fn
+    sleep 25m
+    osascript -e 'display notification "Get some good work done!" with title "Time to work" sound name "Glass"'
+end
+# I couldn't do `sleep 25m && osascript ...` because the && is like another command after calling `abbr`,
+# so we use a function instead
+abbr -a work --function work_fn
+function rest_fn
+    sleep 5m
+    osascript -e 'display notification "Rest up before the next session" with title "Break time!" sound name "Glass"'
+end
+abbr -a rest --function rest_fn
