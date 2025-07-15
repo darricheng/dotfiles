@@ -22,14 +22,6 @@ return {
 	-- Seems to be a dependency for many plugins
 	"nvim-lua/plenary.nvim",
 
-	-- TODO: refigure out this plugin
-	-- pick out errors easily
-	-- {
-	-- 	"folke/trouble.nvim",
-	-- 	dependencies = "nvim-tree/nvim-web-devicons",
-	-- 	event = "VeryLazy",
-	-- },
-
 	-- For easier access of those few frequently accessed files
 	{
 		"ThePrimeagen/harpoon",
