@@ -48,3 +48,10 @@ function multicd
 end
 abbr -a dotdot --regex '^\.\.+$' --function multicd
 
+# pomodoro
+# NOTE: this is just some sample commands, I want to make them much better to use.
+# The sleep function call can be changed to something that shows a timer bar, like https://github.com/caarlos0/timer
+# I don't want to use the above package because it's a third-party homebrew tap.
+# I can even create a simple CLI using the [indicatif crate](https://docs.rs/indicatif/latest/indicatif/) for the progress bar.
+abbr -a work sleep 25m && osascript -e 'display notification "Get some good work done!" with title "Time to work" sound name "Glass"'
+abbr -a rest sleep 5m && osascript -e 'display notification "Rest up before the next session" with title "Break time!" sound name "Glass"'
