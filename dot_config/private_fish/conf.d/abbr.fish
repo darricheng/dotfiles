@@ -39,6 +39,11 @@ abbr -a gl git log
 abbr -a gpl git pull
 abbr -a gb git branch
 
+# git with difftastic
+abbr -a dgl git -c diff.external=difft log -p --ext-diff
+abbr -a dgs git -c diff.external=difft show --ext-diff
+abbr -a dgd git -c diff.external=difft diff
+
 # reload config
 abbr -a reload-config source ~/.config/fish/**/*.fish
 
