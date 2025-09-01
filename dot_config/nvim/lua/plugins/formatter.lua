@@ -46,6 +46,9 @@ return {
 				eelixir = mix,
 				heex = mix,
 				surface = mix,
+
+				-- SQL
+				sql = { "sqruff" },
 			},
 			format_on_save = {
 				lsp_format = "fallback",
