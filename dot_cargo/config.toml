@@ -1,0 +1,5 @@
+[unstable]
+codegen-backend = true
+
+[profile.dev.package.foo]
+codegen-backend = "cranelift"
