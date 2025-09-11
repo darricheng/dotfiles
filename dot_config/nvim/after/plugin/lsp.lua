@@ -1,5 +1,8 @@
 local lsp = vim.lsp
 
+-- Need to manually enable RA because it's the only one not installed by Mason.
+lsp.enable("rust_analyzer")
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP actions",
 	callback = function(event)
