@@ -39,6 +39,13 @@ abbr -a gl git log
 abbr -a gpl git pull
 abbr -a gb git branch
 
+# github
+abbr -a ghv gh pr view
+abbr -a ghcr gh pr create
+abbr -a ghch gh pr checks
+abbr -a ghm gh pr merge
+abbr -a ghd 'gh pr diff | bat'
+
 # git with difftastic
 abbr -a dgl git -c diff.external=difft log -p --ext-diff
 abbr -a dgs git -c diff.external=difft show --ext-diff
