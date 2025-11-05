@@ -98,6 +98,9 @@ return {
 				["C-l"] = false, -- so that tmux navigator works
 				["C-h"] = false, -- so that tmux navigator works
 			},
+			confirmation = {
+				border = "rounded",
+			},
 		},
 		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
