@@ -42,7 +42,7 @@ abbr -a gb git branch
 # github
 abbr -a ghv gh pr view
 abbr -a ghcr gh pr create
-abbr -a ghch gh pr checks
+abbr -a ghck gh pr checks
 abbr -a ghm gh pr merge
 abbr -a ghd 'gh pr diff | bat'
 
