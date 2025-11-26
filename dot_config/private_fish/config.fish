@@ -21,6 +21,8 @@ fish_add_path /opt/homebrew/opt/ruby/bin
 fish_add_path ~/.local/share/nvim/mason/bin
 # llvm
 fish_add_path /opt/homebrew/opt/llvm/bin
+# other binaries
+fish_add_path ~/.local/bin
 # Not sure if I'll need the below two when using clang?
 # set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
 # set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
