@@ -19,6 +19,7 @@ abbr -a t tmux
 abbr -a tk tmux list-keys
 abbr -a f fzf
 abbr -a j just
+abbr -a c cargo
 
 # homebrew gcc
 abbr -a hgcc /opt/homebrew/bin/gcc-14
