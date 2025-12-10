@@ -14,6 +14,7 @@ abbr -a update-nvim-lazy-lock chezmoi add ~/.config/nvim/lazy-lock.json
 
 # common cli tools
 abbr -a n nvim
+abbr -a n. nvim .
 abbr -a view nvim -R # by default, `view` runs `vim -R`
 abbr -a t tmux
 abbr -a tk tmux list-keys
