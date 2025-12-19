@@ -18,6 +18,3 @@ bindings = [
   # Cmd + backspace deletes to start of line
   { key = "Back", mods = "Command", chars = "\u0015" },
 ]
-
-[env]
-TERM = "xterm-256color"
