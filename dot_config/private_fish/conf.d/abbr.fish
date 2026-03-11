@@ -46,7 +46,7 @@ abbr -a ghv gh pr view
 abbr -a ghcr gh pr create
 abbr -a ghck gh pr checks
 abbr -a ghm gh pr merge
-abbr -a ghd 'gh pr diff | bat'
+abbr -a ghd 'gh pr diff | delta'
 
 # git with difftastic
 abbr -a dgl git -c diff.external=difft log -p --ext-diff
