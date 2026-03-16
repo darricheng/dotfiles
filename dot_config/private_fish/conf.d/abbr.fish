@@ -17,7 +17,7 @@ abbr -a n nvim
 abbr -a n. nvim .
 abbr -a view nvim -R # by default, `view` runs `vim -R`
 abbr -a t tmux
-abbr -a tk tmux list-keys
+abbr -a tk 'tmux list-keys | bat'
 abbr -a f fzf
 abbr -a j just
 abbr -a c cargo
