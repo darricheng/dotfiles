@@ -12,7 +12,7 @@ fish_add_path /opt/homebrew/bin
 # rust binaries installed with cargo 
 fish_add_path ~/.cargo/bin
 # Postgres
-fish_add_path /opt/homebrew/opt/postgresql@16/bin
+fish_add_path /opt/homebrew/opt/postgresql@18/bin
 # make go binaries available on path
 fish_add_path (go env GOPATH)/bin
 # Use the homebrew-installed ruby instead of the one installed in macos by default
