@@ -30,7 +30,6 @@ brew "mprocs"
 brew "mysql"
 brew "neovim"
 brew "onefetch"
-brew "postgresql@16", link: true
 brew "procs"
 brew "pyenv"
 brew "ripgrep"
