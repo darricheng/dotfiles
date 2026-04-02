@@ -13,6 +13,7 @@ vim.pack.add({
 	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/windwp/nvim-ts-autotag",
 	"https://github.com/lukas-reineke/indent-blankline.nvim",
+	"https://github.com/folke/todo-comments.nvim",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -59,3 +60,14 @@ require("ibl").setup({
 		show_end = false,
 	},
 })
+
+require("todo-comments").setup()
+vim.keymap.set("n", "]t", function()
+	require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+vim.keymap.set("n", "[t", function()
+	require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+vim.keymap.set("n", "<leader>st", function()
+	Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "BUG", "ISSUE" } })
+end, { desc = "Todo/Fix/Fixme" })
