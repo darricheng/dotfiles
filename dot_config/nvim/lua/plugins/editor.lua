@@ -14,27 +14,6 @@ return {
 		},
 	},
 
-	-- auto html tag closing
-	{
-		"windwp/nvim-ts-autotag",
-		ft = {
-			"javascript",
-			"javascriptreact",
-			"typescript",
-			"typescriptreact",
-			"svelte",
-			"html",
-			"markdown",
-			"htmldjango",
-			"elixir",
-			"heex",
-		},
-		opts = {
-			aliases = {
-				["heex"] = "html",
-			},
-		},
-	},
 	-- Highlight TODO comments and stuff
 	{
 		"folke/todo-comments.nvim",

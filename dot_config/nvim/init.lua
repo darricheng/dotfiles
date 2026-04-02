@@ -11,6 +11,7 @@ vim.pack.add({
 	{ src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("*") },
 	"https://github.com/numToStr/Comment.nvim",
 	"https://github.com/windwp/nvim-autopairs",
+	"https://github.com/windwp/nvim-ts-autotag",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
