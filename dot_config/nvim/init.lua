@@ -5,6 +5,7 @@ require("config.set")
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 	{ src = "https://github.com/shortcuts/no-neck-pain.nvim", version = vim.version.range("*") },
+	"https://github.com/tpope/vim-abolish",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
