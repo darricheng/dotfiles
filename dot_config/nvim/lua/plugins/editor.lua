@@ -80,13 +80,6 @@ return {
 		},
 	},
 
-	-- deal with surrounds, such as brackets, quotes, etc
-	{
-		"kylechui/nvim-surround",
-		version = "*",
-		event = require("plugins.utils.events").lazy_file,
-		opts = {},
-	},
 	{
 		"rcarriga/nvim-notify",
 		event = "VeryLazy",
