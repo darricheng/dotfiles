@@ -9,6 +9,7 @@ vim.pack.add({
 	{ src = "https://github.com/shortcuts/no-neck-pain.nvim", version = vim.version.range("*") },
 	"https://github.com/tpope/vim-abolish",
 	{ src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("*") },
+	"https://github.com/numToStr/Comment.nvim",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -44,3 +45,5 @@ vim.keymap.set("n", "<leader>nr", function()
 		vim.cmd.NoNeckPain()
 	end, 100)
 end, { desc = "[N]oNeckPain: Reset (double toggle)" })
+
+require("Comment").setup()

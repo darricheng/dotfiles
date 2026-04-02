@@ -14,12 +14,6 @@ return {
 		},
 	},
 
-	-- "gc" to comment visual regions/lines
-	{
-		"numToStr/Comment.nvim",
-		opts = {},
-		event = "VeryLazy",
-	},
 	-- autopairs
 	{
 		"windwp/nvim-autopairs",
