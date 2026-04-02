@@ -10,6 +10,7 @@ vim.pack.add({
 	"https://github.com/tpope/vim-abolish",
 	{ src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("*") },
 	"https://github.com/numToStr/Comment.nvim",
+	"https://github.com/windwp/nvim-autopairs",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -47,3 +48,4 @@ vim.keymap.set("n", "<leader>nr", function()
 end, { desc = "[N]oNeckPain: Reset (double toggle)" })
 
 require("Comment").setup()
+require("nvim-autopairs").setup()

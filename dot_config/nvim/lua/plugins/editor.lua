@@ -14,11 +14,6 @@ return {
 		},
 	},
 
-	-- autopairs
-	{
-		"windwp/nvim-autopairs",
-		opts = {},
-	},
 	-- auto html tag closing
 	{
 		"windwp/nvim-ts-autotag",
