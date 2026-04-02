@@ -5,6 +5,8 @@ require("config.set")
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 
+	"https://github.com/folke/snacks.nvim",
+
 	-- editor stuff
 	{ src = "https://github.com/shortcuts/no-neck-pain.nvim", version = vim.version.range("*") },
 	"https://github.com/tpope/vim-abolish",
@@ -17,6 +19,164 @@ vim.pack.add({
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
+
+local snacks = require("snacks")
+snacks.setup({
+	input = {},
+	-- TODO: Change keymaps that use the meta key
+	-- See: https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#%EF%B8%8F-config
+	picker = {
+		main = {
+			-- When using picker from Oil, this ensures the same buffer is used even
+			-- if a vertically split pane is open.
+			file = false,
+		},
+	},
+	-- TODO: would like to switch over to this if there's a proper integration for Noice
+	-- notifier = {},
+})
+-- NOTE: Picker keys
+-- Top Pickers & Explorer
+vim.keymap.set("n", "<leader><space>", function()
+	snacks.picker.smart()
+end, { desc = "Smart Find Files" })
+vim.keymap.set("n", "<leader>,", function()
+	snacks.picker.buffers()
+end, { desc = "Buffers" })
+vim.keymap.set("n", "<leader>:", function()
+	snacks.picker.command_history()
+end, { desc = "Command History" })
+-- find
+vim.keymap.set("n", "<leader>ff", function()
+	snacks.picker.files()
+end, { desc = "Find Files" })
+vim.keymap.set("n", "<leader>fg", function()
+	snacks.picker.git_files()
+end, { desc = "Find Git Files" })
+vim.keymap.set("n", "<leader>fr", function()
+	snacks.picker.recent()
+end, { desc = "Recent" })
+-- git
+vim.keymap.set("n", "<leader>gb", function()
+	snacks.picker.git_branches()
+end, { desc = "Git Branches" })
+vim.keymap.set("n", "<leader>gl", function()
+	snacks.picker.git_log()
+end, { desc = "Git Log" })
+vim.keymap.set("n", "<leader>gL", function()
+	snacks.picker.git_log_line()
+end, { desc = "Git Log Line" })
+vim.keymap.set("n", "<leader>gs", function()
+	snacks.picker.git_status()
+end, { desc = "Git Status" })
+vim.keymap.set("n", "<leader>gS", function()
+	snacks.picker.git_stash()
+end, { desc = "Git Stash" })
+vim.keymap.set("n", "<leader>gd", function()
+	snacks.picker.git_diff()
+end, { desc = "Git Diff (Hunks)" })
+vim.keymap.set("n", "<leader>gf", function()
+	snacks.picker.git_log_file()
+end, { desc = "Git Log File" })
+-- Grep
+vim.keymap.set("n", "<leader>sb", function()
+	snacks.picker.lines()
+end, { desc = "Buffer Lines" })
+vim.keymap.set("n", "<leader>sB", function()
+	snacks.picker.grep_buffers()
+end, { desc = "Grep Open Buffers" })
+vim.keymap.set("n", "<leader>sg", function()
+	snacks.picker.grep()
+end, { desc = "Grep" })
+vim.keymap.set({ "n", "x" }, "<leader>sw", function()
+	snacks.picker.grep_word()
+end, { desc = "Visual selection or word" })
+-- search
+vim.keymap.set("n", '<leader>s"', function()
+	snacks.picker.registers()
+end, { desc = "Registers" })
+vim.keymap.set("n", "<leader>s/", function()
+	snacks.picker.search_history()
+end, { desc = "Search History" })
+vim.keymap.set("n", "<leader>sa", function()
+	snacks.picker.autocmds()
+end, { desc = "Autocmds" })
+vim.keymap.set("n", "<leader>sb", function()
+	snacks.picker.lines()
+end, { desc = "Buffer Lines" })
+vim.keymap.set("n", "<leader>sc", function()
+	snacks.picker.command_history()
+end, { desc = "Command History" })
+vim.keymap.set("n", "<leader>sC", function()
+	snacks.picker.commands()
+end, { desc = "Commands" })
+vim.keymap.set("n", "<leader>sd", function()
+	snacks.picker.diagnostics()
+end, { desc = "Diagnostics" })
+vim.keymap.set("n", "<leader>sD", function()
+	snacks.picker.diagnostics_buffer()
+end, { desc = "Buffer Diagnostics" })
+vim.keymap.set("n", "<leader>sh", function()
+	snacks.picker.help()
+end, { desc = "Help Pages" })
+vim.keymap.set("n", "<leader>sH", function()
+	snacks.picker.highlights()
+end, { desc = "Highlights" })
+vim.keymap.set("n", "<leader>si", function()
+	snacks.picker.icons()
+end, { desc = "Icons" })
+vim.keymap.set("n", "<leader>sj", function()
+	snacks.picker.jumps()
+end, { desc = "Jumps" })
+vim.keymap.set("n", "<leader>sk", function()
+	snacks.picker.keymaps()
+end, { desc = "Keymaps" })
+vim.keymap.set("n", "<leader>sl", function()
+	snacks.picker.loclist()
+end, { desc = "Location List" })
+vim.keymap.set("n", "<leader>sm", function()
+	snacks.picker.marks()
+end, { desc = "Marks" })
+vim.keymap.set("n", "<leader>sM", function()
+	snacks.picker.man()
+end, { desc = "Man Pages" })
+vim.keymap.set("n", "<leader>sp", function()
+	snacks.picker.lazy()
+end, { desc = "Search for Plugin Spec" })
+vim.keymap.set("n", "<leader>sq", function()
+	snacks.picker.qflist()
+end, { desc = "Quickfix List" })
+vim.keymap.set("n", "<leader>sR", function()
+	snacks.picker.resume()
+end, { desc = "Resume" })
+vim.keymap.set("n", "<leader>su", function()
+	snacks.picker.undo()
+end, { desc = "Undo History" })
+vim.keymap.set("n", "<leader>Cs", function()
+	snacks.picker.colorschemes()
+end, { desc = "Colorschemes" })
+-- LSP
+vim.keymap.set("n", "gd", function()
+	snacks.picker.lsp_definitions()
+end, { desc = "Goto Definition" })
+vim.keymap.set("n", "gD", function()
+	snacks.picker.lsp_declarations()
+end, { desc = "Goto Declaration" })
+vim.keymap.set("n", "grr", function()
+	snacks.picker.lsp_references()
+end, { nowait = true, desc = "References" })
+vim.keymap.set("n", "gri", function()
+	snacks.picker.lsp_implementations()
+end, { desc = "Goto Implementation" })
+vim.keymap.set("n", "gy", function()
+	snacks.picker.lsp_type_definitions()
+end, { desc = "Goto T[y]pe Definition" })
+vim.keymap.set("n", "gO", function()
+	snacks.picker.lsp_symbols()
+end, { desc = "LSP Symbols" })
+vim.keymap.set("n", "<leader>wO", function()
+	snacks.picker.lsp_workspace_symbols()
+end, { desc = "LSP Workspace Symbols" })
 
 require("no-neck-pain").setup({
 	width = 100,
