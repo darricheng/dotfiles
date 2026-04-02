@@ -12,6 +12,7 @@ vim.pack.add({
 	"https://github.com/numToStr/Comment.nvim",
 	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/windwp/nvim-ts-autotag",
+	"https://github.com/lukas-reineke/indent-blankline.nvim",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -50,3 +51,11 @@ end, { desc = "[N]oNeckPain: Reset (double toggle)" })
 
 require("Comment").setup()
 require("nvim-autopairs").setup()
+require("ibl").setup({
+	-- Setup config for indent_blankline goes here
+	-- See :h ibl.setup for more info
+	scope = {
+		show_start = false,
+		show_end = false,
+	},
+})

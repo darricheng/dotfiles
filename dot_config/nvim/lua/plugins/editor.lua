@@ -1,19 +1,4 @@
 return {
-	-- Add indentation guides on blank lines
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = require("plugins.utils.events").lazy_file,
-		main = "ibl",
-		opts = {
-			-- Setup config for indent_blankline goes here
-			-- See :h ibl.setup for more info
-			scope = {
-				show_start = false,
-				show_end = false,
-			},
-		},
-	},
-
 	-- Highlight TODO comments and stuff
 	{
 		"folke/todo-comments.nvim",
