@@ -1,22 +1,4 @@
 return {
-	{
-		"folke/zen-mode.nvim",
-		cmd = "ZenMode",
-		keys = {
-			{
-				"<leader>z",
-				"<cmd>ZenMode<cr>",
-				desc = "[Z]enMode",
-			},
-		},
-		opts = {
-			plugins = {
-				tmux = {
-					enabled = true,
-				},
-			},
-		},
-	},
 	-- Add indentation guides on blank lines
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -63,24 +45,6 @@ return {
 				["heex"] = "html",
 			},
 		},
-	},
-	-- more expressive undos
-	{
-		"mbbill/undotree",
-		cmd = "UndotreeToggle",
-		keys = {
-			{
-				"<leader>u",
-				vim.cmd.UndotreeToggle,
-				desc = "[U]ndoTree",
-			},
-		},
-		init = function()
-			-- open undotree on the right and diff below
-			vim.g.undotree_WindowLayout = 2
-			-- width of the undotree window
-			vim.g.undotree_SplitWidth = 40
-		end,
 	},
 	-- Highlight TODO comments and stuff
 	{
