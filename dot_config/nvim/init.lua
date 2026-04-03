@@ -30,6 +30,7 @@ vim.pack.add({
 
 	-- git
 	"https://github.com/tpope/vim-fugitive",
+	"https://github.com/lewis6991/gitsigns.nvim",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -291,4 +292,34 @@ end, {
 	silent = true,
 	noremap = true,
 	desc = "[F]ormat buffer",
+})
+
+require("gitsigns").setup({
+	-- See `:help gitsigns.txt`
+	signs = {
+		add = { text = "+" },
+		change = { text = "~" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
+	},
+	on_attach = function(bufnr)
+		local gitsigns = require("gitsigns")
+
+		-- goto prev hunk
+		vim.keymap.set("n", "[c", function()
+			gitsigns.nav_hunk("prev")
+		end, { buffer = bufnr, desc = "Go to Previous Hunk" })
+
+		-- goto next hunk
+		vim.keymap.set("n", "]c", function()
+			gitsigns.nav_hunk("next")
+		end, { buffer = bufnr, desc = "Go to Next Hunk" })
+
+		-- view git diff
+		vim.keymap.set("n", "<leader>gd", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "[G]it [D]iff" })
+	end,
+	preview_config = {
+		border = "rounded",
+	},
 })
