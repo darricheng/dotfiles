@@ -1,10 +1,5 @@
 return {
 	{
-		"tpope/vim-fugitive",
-		cmd = { "Git", "G", "Gwrite" },
-	},
-	"tpope/vim-rhubarb",
-	{
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 	},

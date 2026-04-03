@@ -27,6 +27,9 @@ vim.pack.add({
 
 	-- Formatting
 	"https://github.com/stevearc/conform.nvim",
+
+	-- git
+	"https://github.com/tpope/vim-fugitive",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
