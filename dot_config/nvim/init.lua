@@ -1,4 +1,4 @@
-require("config")
+require("config.highlight")
 require("config.remap")
 require("config.set")
 
