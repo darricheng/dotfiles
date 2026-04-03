@@ -13,12 +13,15 @@ end
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 
-	-- Seems to be a dependency for many plugins
+	-- dependencies
 	"nvim-lua/plenary.nvim",
+	"https://github.com/nvim-tree/nvim-web-devicons",
 
 	-- general
 	"https://github.com/folke/snacks.nvim",
 	"https://github.com/tpope/vim-sleuth",
+	"https://github.com/nvim-lualine/lualine.nvim",
+	"https://github.com/stevearc/oil.nvim",
 
 	-- editor stuff
 	{ src = "https://github.com/shortcuts/no-neck-pain.nvim", version = vim.version.range("*") },
@@ -39,6 +42,54 @@ vim.pack.add({
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
+
+require("lualine").setup({
+	options = {
+		component_separators = "|",
+		section_separators = "",
+	},
+})
+
+require("oil").setup({
+	default_file_explorer = true,
+	delete_to_trash = true,
+	columns = {
+		"icon",
+		"permissions",
+		-- "mtime",
+		-- "size",
+	},
+	view_options = {
+		show_hidden = true,
+	},
+	win_options = {
+		winbar = "%{v:lua.require('oil').get_current_dir()}",
+	},
+	use_default_keymaps = false,
+	keymaps = {
+		["g?"] = "actions.show_help",
+		["<CR>"] = "actions.select",
+		["<C-v>"] = "actions.select_vsplit",
+		["<C-x>"] = "actions.select_split",
+		["<C-p>"] = "actions.preview",
+		["<C-c>"] = "actions.close",
+		["<C-r>"] = "actions.refresh",
+		["-"] = "actions.parent",
+		["_"] = "actions.open_cwd",
+		["`"] = "actions.cd",
+		["~"] = "actions.tcd",
+		["gs"] = "actions.change_sort",
+		["gx"] = "actions.open_external",
+		["g."] = "actions.toggle_hidden",
+		["g\\"] = "actions.toggle_trash",
+		["C-t"] = false, -- don't need new tab
+		["C-l"] = false, -- so that tmux navigator works
+		["C-h"] = false, -- so that tmux navigator works
+	},
+	confirmation = {
+		border = "rounded",
+	},
+})
 
 local snacks = require("snacks")
 snacks.setup({
