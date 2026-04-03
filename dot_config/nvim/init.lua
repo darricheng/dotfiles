@@ -62,7 +62,7 @@ vim.pack.add({
 	"https://github.com/j-hui/fidget.nvim",
 })
 
-vim.cmd.colorscheme("catppuccin-macchiato")
+vim.cmd.colorscheme("catppuccin-mocha")
 
 require("lualine").setup({
 	options = {
