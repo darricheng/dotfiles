@@ -22,6 +22,7 @@ vim.pack.add({
 	"https://github.com/tpope/vim-sleuth",
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/christoomey/vim-tmux-navigator",
 
 	-- editor stuff
 	{ src = "https://github.com/shortcuts/no-neck-pain.nvim", version = vim.version.range("*") },
@@ -402,9 +403,16 @@ quicker.setup({
 		},
 	},
 })
-vim.keymap.set("n", "<leader>q", function()
+map("n", "<leader>q", function()
 	quicker.toggle()
 end, { desc = "Toggle quickfix" })
-vim.keymap.set("n", "<leader>l", function()
+map("n", "<leader>l", function()
 	quicker.toggle({ loclist = true })
 end, { desc = "Toggle loclist" })
+
+-- vim-tmux-navigator
+map("n", "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>")
+map("n", "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>")
+map("n", "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>")
+map("n", "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>")
+map("n", "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>")
