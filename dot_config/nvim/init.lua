@@ -10,56 +10,61 @@ local map = function(modes, lhs, rhs, opts)
 	vim.keymap.set(modes, lhs, rhs, opts)
 end
 
+---@param repo string           user/repo of the plugin
+local gh = function(repo)
+	return "https://github.com/" .. repo
+end
+
 vim.pack.add({
-	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+	{ src = gh("catppuccin/nvim"), name = "catppuccin" },
 
 	-- dependencies
-	"https://github.com/nvim-lua/plenary.nvim",
-	"https://github.com/nvim-tree/nvim-web-devicons",
+	gh("nvim-lua/plenary.nvim"),
+	gh("nvim-tree/nvim-web-devicons"),
 
 	-- general
-	"https://github.com/folke/snacks.nvim",
-	"https://github.com/tpope/vim-sleuth",
-	"https://github.com/nvim-lualine/lualine.nvim",
-	"https://github.com/stevearc/oil.nvim",
-	"https://github.com/christoomey/vim-tmux-navigator",
+	gh("folke/snacks.nvim"),
+	gh("tpope/vim-sleuth"),
+	gh("nvim-lualine/lualine.nvim"),
+	gh("stevearc/oil.nvim"),
+	gh("christoomey/vim-tmux-navigator"),
 
 	-- editor stuff
-	{ src = "https://github.com/shortcuts/no-neck-pain.nvim", version = vim.version.range("*") },
-	"https://github.com/tpope/vim-abolish",
-	{ src = "https://github.com/kylechui/nvim-surround", version = vim.version.range("*") },
-	"https://github.com/numToStr/Comment.nvim",
-	"https://github.com/windwp/nvim-autopairs",
-	"https://github.com/windwp/nvim-ts-autotag",
-	"https://github.com/lukas-reineke/indent-blankline.nvim",
-	"https://github.com/folke/todo-comments.nvim",
+	{ src = gh("shortcuts/no-neck-pain.nvim"), version = vim.version.range("*") },
+	gh("tpope/vim-abolish"),
+	{ src = gh("kylechui/nvim-surround"), version = vim.version.range("*") },
+	gh("numToStr/Comment.nvim"),
+	gh("windwp/nvim-autopairs"),
+	gh("windwp/nvim-ts-autotag"),
+	gh("lukas-reineke/indent-blankline.nvim"),
+	gh("folke/todo-comments.nvim"),
 
 	-- Formatting
-	"https://github.com/stevearc/conform.nvim",
+	gh("stevearc/conform.nvim"),
 
 	-- git
-	"https://github.com/tpope/vim-fugitive",
-	"https://github.com/lewis6991/gitsigns.nvim",
+	gh("tpope/vim-fugitive"),
+	gh("lewis6991/gitsigns.nvim"),
 
 	-- quickfix
-	"https://github.com/stevearc/quicker.nvim",
+	gh("stevearc/quicker.nvim"),
 
 	-- treesitter
-	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
-	"https://github.com/nvim-treesitter/nvim-treesitter-context",
+	gh("nvim-treesitter/nvim-treesitter"),
+	gh("nvim-treesitter/nvim-treesitter-textobjects"),
+	gh("nvim-treesitter/nvim-treesitter-context"),
 
 	-- lsp
-	"https://github.com/neovim/nvim-lspconfig",
-	"https://github.com/mason-org/mason.nvim",
-	"https://github.com/mason-org/mason-lspconfig.nvim",
-	"https://github.com/stevearc/aerial.nvim",
-	"https://github.com/rafamadriz/friendly-snippets",
-	{ src = "https://github.com/L3MON4D3/LuaSnip", version = vim.version.range("2.*") },
-	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
-	"https://github.com/folke/lazydev.nvim",
-	"https://github.com/Bilal2453/luvit-meta",
-	"https://github.com/j-hui/fidget.nvim",
+	gh("neovim/nvim-lspconfig"),
+	gh("mason-org/mason.nvim"),
+	gh("mason-org/mason-lspconfig.nvim"),
+	gh("stevearc/aerial.nvim"),
+	gh("rafamadriz/friendly-snippets"),
+	{ src = gh("L3MON4D3/LuaSnip"), version = vim.version.range("2.*") },
+	{ src = gh("Saghen/blink.cmp"), version = vim.version.range("1.*") },
+	gh("folke/lazydev.nvim"),
+	gh("Bilal2453/luvit-meta"),
+	gh("j-hui/fidget.nvim"),
 })
 
 vim.cmd.colorscheme("catppuccin-mocha")
