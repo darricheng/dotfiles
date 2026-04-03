@@ -54,6 +54,8 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/mason-org/mason-lspconfig.nvim",
 	"https://github.com/stevearc/aerial.nvim",
+	"https://github.com/rafamadriz/friendly-snippets",
+	{ src = "https://github.com/L3MON4D3/LuaSnip", version = vim.version.range("2.*") },
 	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
 })
 
@@ -432,18 +434,6 @@ map("n", "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>")
 -- treesitter
 -- Adapted from: https://github.com/xaaha/dev-env/blob/d83b718fa2372704b993c4e0c8338e460d44a3d5/nvim/.config/nvim/init.lua#L276
 -- See reddit thread: https://www.reddit.com/r/neovim/comments/1l3z4j4/help_with_new_treesitter_setup_in_neovim_default/
--- Run TSUpdate when treesitter is updated
-vim.api.nvim_create_autocmd("PackChanged", {
-	callback = function(ev)
-		local name, kind = ev.data.spec.name, ev.data.kind
-		if name == "nvim-treesitter" and kind == "update" then
-			if not ev.data.active then
-				vim.cmd.packadd("nvim-treesitter")
-			end
-			vim.cmd("TSUpdate")
-		end
-	end,
-})
 local ts_ensure_installed = {
 	"c",
 	"cpp",
@@ -530,3 +520,48 @@ vim.api.nvim_create_autocmd("TSPlayground", {
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("aerial").setup()
+require("blink.cmp").setup({
+	keymap = {
+		preset = "none",
+		["<C-n>"] = { "select_next", "fallback_to_mappings" },
+		["<C-j>"] = { "select_next", "fallback_to_mappings" },
+		["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+		["<C-k>"] = { "select_prev", "fallback_to_mappings" },
+		["<C-y>"] = { "select_and_accept", "fallback" },
+		["<C-u>"] = { "scroll_documentation_up", "fallback" },
+		["<C-d>"] = { "scroll_documentation_down", "fallback" },
+		["<C-e>"] = { "hide", "fallback" },
+		["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+	},
+	snippets = { preset = "luasnip" },
+	sources = {
+		default = { "lsp", "path", "snippets", "buffer" },
+		per_filetype = {
+			lua = { inherit_defaults = true, "lazydev" },
+		},
+		providers = {
+			lazydev = {
+				name = "LazyDev",
+				module = "lazydev.integrations.blink",
+				-- make lazydev completions top priority (see `:h blink.cmp`)
+				score_offset = 100,
+			},
+		},
+	},
+})
+
+vim.api.nvim_create_autocmd("PackChanged", {
+	callback = function(ev)
+		local name, kind = ev.data.spec.name, ev.data.kind
+		-- Run TSUpdate when treesitter is updated
+		if name == "nvim-treesitter" and kind == "update" then
+			if not ev.data.active then
+				vim.cmd.packadd("nvim-treesitter")
+			end
+			vim.cmd("TSUpdate")
+		end
+		if name == "LuaSnip" and (kind == "install" or kind == "update") then
+			print(vim.inspect(ev))
+		end
+	end,
+})
