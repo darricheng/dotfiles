@@ -27,8 +27,11 @@ vim.wo.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.o.timeout = true
-vim.o.timeoutlen = 300
+
+-- timeout of shortcuts
+-- don't set a timeout so that I can pause to think about my keypresses
+vim.o.timeout = false
+-- vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
