@@ -570,6 +570,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 			vim.cmd("TSUpdate")
 		end
 		if name == "LuaSnip" and (kind == "install" or kind == "update") then
+			-- TODO: Figure out how to auto run the make command that is required
 			vim.notify(vim.inspect(ev))
 		end
 	end,
