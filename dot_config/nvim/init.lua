@@ -560,6 +560,9 @@ vim.api.nvim_create_user_command("TSPlayground", function()
 end, {})
 
 -- lsp
+map("n", "K", function()
+	vim.lsp.buf.hover({ border = "rounded" })
+end)
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("aerial").setup()
