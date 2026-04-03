@@ -32,8 +32,6 @@ snacks.setup({
 			file = false,
 		},
 	},
-	-- TODO: would like to switch over to this if there's a proper integration for Noice
-	-- notifier = {},
 })
 -- NOTE: Picker keys
 -- Top Pickers & Explorer
@@ -229,5 +227,5 @@ vim.keymap.set("n", "[t", function()
 	require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
 vim.keymap.set("n", "<leader>st", function()
-	Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "BUG", "ISSUE" } })
+	snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "BUG", "ISSUE" } })
 end, { desc = "Todo/Fix/Fixme" })
