@@ -1,13 +1,4 @@
 return {
-
-	-- Detect tabstop and shiftwidth automatically
-	"tpope/vim-sleuth",
-
-	-- Useful plugin to show you pending keybinds.
-	-- BUG: Apparently, this plugin causes issues with ctrl-o from insert mode.
-	-- See issue: https://github.com/folke/which-key.nvim/issues/827#issue-2477918033
-	-- See for possible fix: https://github.com/folke/which-key.nvim/pull/879
-	{ "folke/which-key.nvim", opts = {} },
 	{
 		-- Set lualine as statusline
 		"nvim-lualine/lualine.nvim",
@@ -19,8 +10,6 @@ return {
 			},
 		},
 	},
-	-- Seems to be a dependency for many plugins
-	"nvim-lua/plenary.nvim",
 
 	-- For easier access of those few frequently accessed files
 	{
@@ -53,13 +42,6 @@ return {
 		end,
 	},
 
-	-- preview markdown directly in neovim
-	-- install `glow` with `brew install glow` to use this
-	{
-		"ellisonleao/glow.nvim",
-		config = true,
-		cmd = "Glow",
-	},
 	{
 		"stevearc/oil.nvim",
 		opts = {

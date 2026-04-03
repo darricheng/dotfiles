@@ -13,7 +13,12 @@ end
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 
+	-- Seems to be a dependency for many plugins
+	"nvim-lua/plenary.nvim",
+
+	-- general
 	"https://github.com/folke/snacks.nvim",
+	"https://github.com/tpope/vim-sleuth",
 
 	-- editor stuff
 	{ src = "https://github.com/shortcuts/no-neck-pain.nvim", version = vim.version.range("*") },
