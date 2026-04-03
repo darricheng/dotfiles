@@ -62,6 +62,10 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.nvim": {
+      "rev": "3923662bf3d6ca49a9503f8d7196ea0450983e6a",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
     "no-neck-pain.nvim": {
       "rev": "434fed70b1ee553f8f27e6da7b3899f71b3c6f99",
       "src": "https://github.com/shortcuts/no-neck-pain.nvim",
