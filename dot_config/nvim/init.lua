@@ -2,6 +2,14 @@ require("config")
 require("config.remap")
 require("config.set")
 
+---@param modes string|string[] Mode "short-name" (see |nvim_set_keymap()|), or a list thereof.
+---@param lhs string           Left-hand side |{lhs}| of the mapping.
+---@param rhs string|function  Right-hand side |{rhs}| of the mapping, can be a Lua function.
+---@param opts? vim.keymap.set.Opts
+local map = function(modes, lhs, rhs, opts)
+	vim.keymap.set(modes, lhs, rhs, opts)
+end
+
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 
@@ -16,6 +24,9 @@ vim.pack.add({
 	"https://github.com/windwp/nvim-ts-autotag",
 	"https://github.com/lukas-reineke/indent-blankline.nvim",
 	"https://github.com/folke/todo-comments.nvim",
+
+	-- Formatting
+	"https://github.com/stevearc/conform.nvim",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -229,3 +240,52 @@ end, { desc = "Previous todo comment" })
 vim.keymap.set("n", "<leader>st", function()
 	snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "BUG", "ISSUE" } })
 end, { desc = "Todo/Fix/Fixme" })
+
+local prettier = { "prettierd", "prettier", stop_after_first = true }
+local biome_prettier = { "biome", "prettierd", "prettier", stop_after_first = true }
+local conform = require("conform")
+conform.setup({
+	formatters = {
+		biome = {
+			require_cwd = true,
+		},
+	},
+	formatters_by_ft = {
+		lua = { "stylua" },
+		c = { "clang_format" },
+		cpp = { "clang_format" },
+		-- rust-analyzer uses rustfmt under the hood
+		-- leptosfmt also needs to use rust-analyzer directly
+		-- rust = { "rustfmt" },
+		go = { "goimports" },
+		python = { "black" },
+		toml = { "taplo" },
+		json = biome_prettier,
+		markdown = prettier,
+
+		-- Web
+		html = biome_prettier,
+		css = biome_prettier,
+
+		-- JS/TS
+		javascript = biome_prettier,
+		typescript = biome_prettier,
+		typescriptreact = biome_prettier,
+		javascriptreact = biome_prettier,
+		svelte = prettier,
+
+		-- SQL
+		sql = { "sqruff" },
+	},
+	format_on_save = {
+		lsp_format = "fallback",
+		timeout_ms = 500,
+	},
+})
+map("n", "<leader>F", function()
+	conform.format({ lsp_format = "fallback" })
+end, {
+	silent = true,
+	noremap = true,
+	desc = "[F]ormat buffer",
+})
