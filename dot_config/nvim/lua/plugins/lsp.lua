@@ -1,27 +1,4 @@
 return {
-	-- Mason
-	{
-		"williamboman/mason.nvim",
-		config = true,
-		opts = {},
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		config = true,
-	},
-
-	-- LSP
-	"neovim/nvim-lspconfig",
-	{
-		"stevearc/aerial.nvim",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
-		},
-		event = "VeryLazy",
-		config = true,
-	},
-
 	-- Autocompletion
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",

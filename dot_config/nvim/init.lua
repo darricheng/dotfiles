@@ -14,7 +14,7 @@ vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 
 	-- dependencies
-	"nvim-lua/plenary.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
 
 	-- general
@@ -48,6 +48,13 @@ vim.pack.add({
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 	"https://github.com/nvim-treesitter/nvim-treesitter-context",
+
+	-- lsp
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/mason-org/mason-lspconfig.nvim",
+	"https://github.com/stevearc/aerial.nvim",
+	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -518,3 +525,8 @@ vim.api.nvim_create_autocmd("TSPlayground", {
 		vim.notify("Use the builtin InspectTree cmd")
 	end,
 })
+
+-- lsp
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("aerial").setup()
