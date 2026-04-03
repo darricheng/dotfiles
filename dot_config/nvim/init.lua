@@ -43,6 +43,11 @@ vim.pack.add({
 
 	-- quickfix
 	"https://github.com/stevearc/quicker.nvim",
+
+	-- treesitter
+	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+	"https://github.com/nvim-treesitter/nvim-treesitter-context",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -416,3 +421,100 @@ map("n", "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>")
 map("n", "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>")
 map("n", "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>")
 map("n", "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>")
+
+-- treesitter
+-- Adapted from: https://github.com/xaaha/dev-env/blob/d83b718fa2372704b993c4e0c8338e460d44a3d5/nvim/.config/nvim/init.lua#L276
+-- See reddit thread: https://www.reddit.com/r/neovim/comments/1l3z4j4/help_with_new_treesitter_setup_in_neovim_default/
+-- Run TSUpdate when treesitter is updated
+vim.api.nvim_create_autocmd("PackChanged", {
+	callback = function(ev)
+		local name, kind = ev.data.spec.name, ev.data.kind
+		if name == "nvim-treesitter" and kind == "update" then
+			if not ev.data.active then
+				vim.cmd.packadd("nvim-treesitter")
+			end
+			vim.cmd("TSUpdate")
+		end
+	end,
+})
+local ts_ensure_installed = {
+	"c",
+	"cpp",
+	"go",
+	"lua",
+	"rust",
+	"tsx",
+	"typescript",
+	"javascript",
+	"svelte",
+	"vimdoc",
+	"markdown",
+	"markdown_inline",
+	"json",
+	"toml",
+	"regex",
+	"bash",
+	"css",
+	"just",
+	"fish",
+}
+-- Install parsers and register them for filetypes
+require("nvim-treesitter").install(ts_ensure_installed)
+for _, parser in ipairs(ts_ensure_installed) do
+	vim.treesitter.language.register(parser, parser)
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = parser,
+		callback = function(event)
+			vim.treesitter.start(event.buf, parser)
+		end,
+	})
+end
+-- Auto-install and start parsers for any buffer not in the list above
+vim.api.nvim_create_autocmd("BufRead", {
+	callback = function(event)
+		local bufnr = event.buf
+		local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
+
+		if filetype == "" then
+			return
+		end
+
+		-- Skip if already handled by ts_ensure_installed
+		if vim.tbl_contains(ts_ensure_installed, filetype) then
+			return
+		end
+
+		local parser_name = vim.treesitter.language.get_lang(filetype)
+		if not parser_name then
+			return
+		end
+
+		local parser_configs = require("nvim-treesitter.parsers")
+		if not parser_configs[parser_name] then
+			return
+		end
+
+		local parser_installed = pcall(vim.treesitter.get_parser, bufnr, parser_name)
+
+		if not parser_installed then
+			require("nvim-treesitter").install({ parser_name }):wait(30000)
+		end
+
+		parser_installed = pcall(vim.treesitter.get_parser, bufnr, parser_name)
+
+		if parser_installed then
+			vim.treesitter.start(bufnr, parser_name)
+		end
+	end,
+})
+
+require("treesitter-context").setup({
+	-- Make context always show for top-most code block
+	-- Other alternative is 'cursor', where context only shows if my cursor is in that top-most code block
+	mode = "cursor",
+})
+vim.api.nvim_create_autocmd("TSPlayground", {
+	callback = function()
+		vim.notify("Use the builtin InspectTree cmd")
+	end,
+})
