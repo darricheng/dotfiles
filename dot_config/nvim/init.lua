@@ -39,6 +39,9 @@ vim.pack.add({
 	-- git
 	"https://github.com/tpope/vim-fugitive",
 	"https://github.com/lewis6991/gitsigns.nvim",
+
+	-- quickfix
+	"https://github.com/stevearc/quicker.nvim",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -379,3 +382,29 @@ require("gitsigns").setup({
 		border = "rounded",
 	},
 })
+
+local quicker = require("quicker")
+quicker.setup({
+	keys = {
+		{
+			">",
+			function()
+				quicker.expand({ before = 2, after = 2, add_to_existing = true })
+			end,
+			desc = "Expand quickfix context",
+		},
+		{
+			"<",
+			function()
+				quicker.collapse()
+			end,
+			desc = "Collapse quickfix context",
+		},
+	},
+})
+vim.keymap.set("n", "<leader>q", function()
+	quicker.toggle()
+end, { desc = "Toggle quickfix" })
+vim.keymap.set("n", "<leader>l", function()
+	quicker.toggle({ loclist = true })
+end, { desc = "Toggle loclist" })
