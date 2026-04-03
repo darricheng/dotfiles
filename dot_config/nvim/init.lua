@@ -513,11 +513,9 @@ require("treesitter-context").setup({
 	-- Other alternative is 'cursor', where context only shows if my cursor is in that top-most code block
 	mode = "cursor",
 })
-vim.api.nvim_create_autocmd("TSPlayground", {
-	callback = function()
-		vim.notify("Use the builtin InspectTree cmd")
-	end,
-})
+vim.api.nvim_create_user_command("TSPlayground", function()
+	vim.notify("Use the builtin InspectTree cmd")
+end, {})
 
 -- lsp
 require("mason").setup()
@@ -572,7 +570,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
 			vim.cmd("TSUpdate")
 		end
 		if name == "LuaSnip" and (kind == "install" or kind == "update") then
-			print(vim.inspect(ev))
+			vim.notify(vim.inspect(ev))
 		end
 	end,
 })
