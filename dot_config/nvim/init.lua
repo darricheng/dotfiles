@@ -57,6 +57,9 @@ vim.pack.add({
 	"https://github.com/rafamadriz/friendly-snippets",
 	{ src = "https://github.com/L3MON4D3/LuaSnip", version = vim.version.range("2.*") },
 	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") },
+	"https://github.com/folke/lazydev.nvim",
+	"https://github.com/Bilal2453/luvit-meta",
+	"https://github.com/j-hui/fidget.nvim",
 })
 
 vim.cmd.colorscheme("catppuccin-macchiato")
@@ -520,6 +523,7 @@ vim.api.nvim_create_autocmd("TSPlayground", {
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("aerial").setup()
+require("fidget").setup({})
 require("blink.cmp").setup({
 	keymap = {
 		preset = "none",
@@ -547,6 +551,13 @@ require("blink.cmp").setup({
 				score_offset = 100,
 			},
 		},
+	},
+})
+require("lazydev").setup({
+	library = {
+		-- See the configuration section for more details
+		-- Load luvit types when the `vim.uv` word is found
+		{ path = "luvit-meta/library", words = { "vim%.uv" } },
 	},
 })
 
