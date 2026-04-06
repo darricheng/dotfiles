@@ -352,6 +352,7 @@ require("ibl").setup({
 		show_end = false,
 	},
 })
+require("nvim-ts-autotag").setup()
 
 require("todo-comments").setup()
 map("n", "]t", function()
