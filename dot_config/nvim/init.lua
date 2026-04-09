@@ -593,6 +593,20 @@ require("blink.cmp").setup({
 			},
 		},
 	},
+	completion = {
+		ghost_text = {
+			enabled = false,
+			show_with_selection = false,
+			show_without_selection = false,
+			show_with_menu = false,
+			show_without_menu = false,
+		},
+		list = {
+			selection = {
+				auto_insert = false,
+			},
+		},
+	},
 })
 require("lazydev").setup({
 	library = {
