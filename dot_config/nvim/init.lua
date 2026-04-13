@@ -15,6 +15,7 @@ local gh = function(repo)
 	return "https://github.com/" .. repo
 end
 
+vim.cmd.packadd("nvim.undotree")
 vim.pack.add({
 	{ src = gh("catppuccin/nvim"), name = "catppuccin" },
 
@@ -69,6 +70,7 @@ vim.pack.add({
 })
 
 vim.cmd.colorscheme("catppuccin-mocha")
+map("n", "<leader>u", require("undotree").open)
 
 require("lualine").setup({
 	options = {
