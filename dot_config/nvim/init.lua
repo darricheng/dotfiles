@@ -583,7 +583,6 @@ require("blink.cmp").setup({
 		["<C-e>"] = { "hide", "fallback" },
 		["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 	},
-	dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
 	snippets = { preset = "luasnip" },
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
