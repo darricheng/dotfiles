@@ -102,6 +102,8 @@ miniclue.setup({
 		{ mode = "n", keys = "<C-w>" },
 		-- `z` key
 		{ mode = { "n", "x" }, keys = "z" },
+		-- other keys
+		{ mode = { "n", "x" }, keys = "d" },
 	},
 	clues = {
 		-- Enhance this by adding descriptions for <Leader> mapping groups
