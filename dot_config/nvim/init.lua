@@ -579,13 +579,7 @@ require("lazydev").setup({
 vim.api.nvim_create_autocmd("PackChanged", {
 	callback = function(ev)
 		local name, kind = ev.data.spec.name, ev.data.kind
-		-- Run TSUpdate when treesitter is updated
-		if name == "nvim-treesitter" and kind == "update" then
-			if not ev.data.active then
-				vim.cmd.packadd("nvim-treesitter")
-			end
-			vim.cmd("TSUpdate")
-		end
+
 		if name == "LuaSnip" and (kind == "install" or kind == "update") then
 			-- TODO: Figure out how to auto run the make command that is required
 			vim.notify(vim.inspect(ev))
