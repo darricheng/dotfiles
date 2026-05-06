@@ -52,7 +52,7 @@ vim.pack.add({
 	gh("stevearc/quicker.nvim"),
 
 	-- treesitter
-	gh("nvim-treesitter/nvim-treesitter"),
+	gh("arborist-ts/arborist.nvim"), -- ts parser manager similar to nvim-treesitter
 	gh("nvim-treesitter/nvim-treesitter-textobjects"),
 	gh("nvim-treesitter/nvim-treesitter-context"),
 
@@ -482,8 +482,6 @@ map("n", "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>")
 map("n", "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>")
 
 -- treesitter
--- Adapted from: https://github.com/xaaha/dev-env/blob/d83b718fa2372704b993c4e0c8338e460d44a3d5/nvim/.config/nvim/init.lua#L276
--- See reddit thread: https://www.reddit.com/r/neovim/comments/1l3z4j4/help_with_new_treesitter_setup_in_neovim_default/
 local ts_ensure_installed = {
 	"c",
 	"cpp",
@@ -504,55 +502,12 @@ local ts_ensure_installed = {
 	"css",
 	"just",
 	"fish",
+	"python",
 }
 -- Install parsers and register them for filetypes
-require("nvim-treesitter").install(ts_ensure_installed)
-for _, parser in ipairs(ts_ensure_installed) do
-	vim.treesitter.language.register(parser, parser)
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = parser,
-		callback = function(event)
-			vim.treesitter.start(event.buf, parser)
-		end,
-	})
-end
--- Auto-install and start parsers for any buffer not in the list above
-vim.api.nvim_create_autocmd("BufRead", {
-	callback = function(event)
-		local bufnr = event.buf
-		local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr })
-
-		if filetype == "" then
-			return
-		end
-
-		-- Skip if already handled by ts_ensure_installed
-		if vim.tbl_contains(ts_ensure_installed, filetype) then
-			return
-		end
-
-		local parser_name = vim.treesitter.language.get_lang(filetype)
-		if not parser_name then
-			return
-		end
-
-		local parser_configs = require("nvim-treesitter.parsers")
-		if not parser_configs[parser_name] then
-			return
-		end
-
-		local parser_installed = pcall(vim.treesitter.get_parser, bufnr, parser_name)
-
-		if not parser_installed then
-			require("nvim-treesitter").install({ parser_name }):wait(30000)
-		end
-
-		parser_installed = pcall(vim.treesitter.get_parser, bufnr, parser_name)
-
-		if parser_installed then
-			vim.treesitter.start(bufnr, parser_name)
-		end
-	end,
+require("arborist").setup({
+	update_cadence = "manual",
+	ensure_installed = ts_ensure_installed,
 })
 
 require("treesitter-context").setup({
