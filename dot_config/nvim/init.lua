@@ -569,6 +569,7 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 require("aerial").setup()
 require("fidget").setup({})
+require("luasnip.loaders.from_vscode").lazy_load()
 require("blink.cmp").setup({
 	keymap = {
 		preset = "none",
@@ -582,6 +583,7 @@ require("blink.cmp").setup({
 		["<C-e>"] = { "hide", "fallback" },
 		["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 	},
+	dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
 	snippets = { preset = "luasnip" },
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
