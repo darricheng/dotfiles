@@ -510,6 +510,21 @@ require("arborist").setup({
 	ensure_installed = ts_ensure_installed,
 })
 
+-- nvim-treesitter-textobjects
+require("nvim-treesitter-textobjects").setup()
+vim.keymap.set({ "x", "o" }, "af", function()
+  require "nvim-treesitter-textobjects.select".select_textobject("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "if", function()
+  require "nvim-treesitter-textobjects.select".select_textobject("@function.inner", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ac", function()
+  require "nvim-treesitter-textobjects.select".select_textobject("@class.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ic", function()
+  require "nvim-treesitter-textobjects.select".select_textobject("@class.inner", "textobjects")
+end)
+
 require("treesitter-context").setup({
 	-- Make context always show for top-most code block
 	-- Other alternative is 'cursor', where context only shows if my cursor is in that top-most code block
