@@ -27,8 +27,11 @@ vim.wo.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.o.timeout = true
-vim.o.timeoutlen = 300
+
+-- timeout of shortcuts
+-- don't set a timeout so that I can pause to think about my keypresses
+vim.o.timeout = false
+-- vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
@@ -57,6 +60,9 @@ vim.api.nvim_exec2("language en_SG.UTF-8", {})
 -- show diagnostic in float with borders
 -- For the "gl", "[d", and "]d" shortcuts
 vim.diagnostic.config({
-	float = { border = "rounded", source = true },
+	float = { source = true },
 	jump = { float = true },
 })
+
+-- Default to a rounded border for all floating windows
+vim.o.winborder = "rounded"
