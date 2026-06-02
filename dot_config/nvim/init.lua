@@ -479,17 +479,11 @@ map("n", "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>")
 map("n", "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>")
 
 -- treesitter
--- ts_enable options
+-- ts-enable options
 vim.g.ts_enable = {
-	-- recommended by author
-	auto_init = true,
+	auto_init = false,
 	auto_install = true,
 	highlights = true,
-	-- other defaults
-	regex_syntax = false,
-	folds = false,
-	parser_info = vim.fn.stdpath("config") .. "/treesitter-parsers.json",
-	parser_settings = {},
 }
 
 -- nvim-treesitter-textobjects

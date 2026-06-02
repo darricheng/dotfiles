@@ -12,9 +12,7 @@
         "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7",
         "url": "https://github.com/tree-sitter/tree-sitter-bash"
       },
-      "language_filetypes": [
-        "sh"
-      ],
+      "language_filetypes": ["sh"],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -28,19 +26,6 @@
         "copy_from": "query_fallback"
       }
     },
-    "c_sharp": {
-      "install_info": {
-        "revision": "88366631d598ce6595ec655ce1591b315cffb14c",
-        "url": "https://github.com/tree-sitter/tree-sitter-c-sharp"
-      },
-      "language_filetypes": [
-        "cs",
-        "csharp"
-      ],
-      "queries_info": {
-        "copy_from": "query_fallback"
-      }
-    },
     "cpp": {
       "install_info": {
         "revision": "8b5b49eb196bec7040441bee33b2c9a4838d6967",
@@ -49,9 +34,7 @@
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": [
-        "c"
-      ]
+      "requires": ["c"]
     },
     "css": {
       "install_info": {
@@ -65,6 +48,15 @@
     "ecma": {
       "install_info": {
         "skip": true
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "fish": {
+      "install_info": {
+        "revision": "fa2143f5d66a9eb6c007ba9173525ea7aaafe788",
+        "url": "https://github.com/ram02z/tree-sitter-fish"
       },
       "queries_info": {
         "copy_from": "query_fallback"
@@ -105,22 +97,11 @@
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": [
-        "html_tags"
-      ]
+      "requires": ["html_tags"]
     },
     "html_tags": {
       "install_info": {
         "skip": true
-      },
-      "queries_info": {
-        "copy_from": "query_fallback"
-      }
-    },
-    "java": {
-      "install_info": {
-        "revision": "e10607b45ff745f5f876bfa3e94fbcc6b44bdc11",
-        "url": "https://github.com/tree-sitter/tree-sitter-java"
       },
       "queries_info": {
         "copy_from": "query_fallback"
@@ -131,24 +112,24 @@
         "revision": "58404d8cf191d69f2674a8fd507bd5776f46cb11",
         "url": "https://github.com/tree-sitter/tree-sitter-javascript"
       },
-      "language_filetypes": [
-        "javascriptreact",
-        "ecma",
-        "ecmascript",
-        "jsx",
-        "js"
-      ],
+      "language_filetypes": ["javascriptreact", "ecma", "ecmascript", "jsx", "js"],
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": [
-        "ecma",
-        "jsx"
-      ]
+      "requires": ["ecma", "jsx"]
     },
     "jsx": {
       "install_info": {
         "skip": true
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "just": {
+      "install_info": {
+        "revision": "5685543a6e64f66335e25518c9ae8ffa1dae3d01",
+        "url": "https://github.com/IndianBoy42/tree-sitter-just"
       },
       "queries_info": {
         "copy_from": "query_fallback"
@@ -163,59 +144,12 @@
         "copy_from": "query_fallback"
       }
     },
-    "php": {
-      "install_info": {
-        "location": "php",
-        "revision": "3f2465c217d0a966d41e584b42d75522f2a3149e",
-        "url": "https://github.com/tree-sitter/tree-sitter-php"
-      },
-      "queries_info": {
-        "copy_from": "query_fallback"
-      },
-      "requires": [
-        "php_only"
-      ]
-    },
-    "php_only": {
-      "install_info": {
-        "location": "php_only",
-        "revision": "3f2465c217d0a966d41e584b42d75522f2a3149e",
-        "url": "https://github.com/tree-sitter/tree-sitter-php"
-      },
-      "queries_info": {
-        "copy_from": "query_fallback"
-      }
-    },
-    "powershell": {
-      "install_info": {
-        "revision": "73800ecc8bddeee8f1079a5a2e0c13c3d00269bb",
-        "url": "https://github.com/airbus-cert/tree-sitter-powershell"
-      },
-      "language_filetypes": [
-        "ps1"
-      ],
-      "queries_info": {
-        "copy_from": "query_fallback"
-      }
-    },
     "python": {
       "install_info": {
         "revision": "v0.25.0",
         "url": "https://github.com/tree-sitter/tree-sitter-python"
       },
-      "language_filetypes": [
-        "py",
-        "gyp"
-      ],
-      "queries_info": {
-        "copy_from": "query_fallback"
-      }
-    },
-    "ruby": {
-      "install_info": {
-        "revision": "ad907a69da0c8a4f7a943a7fe012712208da6dee",
-        "url": "https://github.com/tree-sitter/tree-sitter-ruby"
-      },
+      "language_filetypes": ["py", "gyp"],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -238,24 +172,27 @@
         "copy_from": "query_fallback"
       }
     },
+    "svelte": {
+      "install_info": {
+        "revision": "ae5199db47757f785e43a14b332118a5474de1a2",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-svelte"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": ["html_tags"]
+    },
     "tsx": {
       "install_info": {
         "location": "tsx",
         "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
         "url": "https://github.com/tree-sitter/tree-sitter-typescript"
       },
-      "language_filetypes": [
-        "typescriptreact",
-        "typescript.tsx"
-      ],
+      "language_filetypes": ["typescriptreact", "typescript.tsx"],
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": [
-        "ecma",
-        "jsx",
-        "typescript"
-      ]
+      "requires": ["ecma", "jsx", "typescript"]
     },
     "typescript": {
       "install_info": {
@@ -263,15 +200,11 @@
         "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
         "url": "https://github.com/tree-sitter/tree-sitter-typescript"
       },
-      "language_filetypes": [
-        "ts"
-      ],
+      "language_filetypes": ["ts"],
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": [
-        "ecma"
-      ]
+      "requires": ["ecma"]
     },
     "vim": {
       "install_info": {
@@ -286,6 +219,15 @@
       "install_info": {
         "revision": "f061895a0eff1d5b90e4fb60d21d87be3267031a",
         "url": "https://github.com/neovim/tree-sitter-vimdoc"
+      },
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
+    },
+    "zig": {
+      "install_info": {
+        "revision": "6479aa13f32f701c383083d8b28360ebd682fb7d",
+        "url": "https://github.com/tree-sitter-grammars/tree-sitter-zig"
       },
       "queries_info": {
         "copy_from": "query_fallback"
