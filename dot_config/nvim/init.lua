@@ -369,15 +369,9 @@ map("n", "<leader>st", function()
 	snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "BUG", "ISSUE" } })
 end, { desc = "Todo/Fix/Fixme" })
 
-local prettier = { "prettierd", "prettier", stop_after_first = true }
-local biome_prettier = { "biome", "prettierd", "prettier", stop_after_first = true }
 local conform = require("conform")
+local web_fmt = { "oxfmt" }
 conform.setup({
-	formatters = {
-		biome = {
-			require_cwd = true,
-		},
-	},
 	formatters_by_ft = {
 		lua = { "stylua" },
 		c = { "clang_format" },
@@ -388,19 +382,19 @@ conform.setup({
 		go = { "goimports" },
 		python = { "black" },
 		toml = { "taplo" },
-		json = biome_prettier,
-		markdown = prettier,
+		json = web_fmt,
+		markdown = web_fmt,
 
 		-- Web
-		html = biome_prettier,
-		css = biome_prettier,
+		html = web_fmt,
+		css = web_fmt,
 
 		-- JS/TS
-		javascript = biome_prettier,
-		typescript = biome_prettier,
-		typescriptreact = biome_prettier,
-		javascriptreact = biome_prettier,
-		svelte = prettier,
+		javascript = web_fmt,
+		typescript = web_fmt,
+		typescriptreact = web_fmt,
+		javascriptreact = web_fmt,
+		svelte = web_fmt,
 
 		-- SQL
 		sql = { "sqruff" },
