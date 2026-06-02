@@ -52,7 +52,10 @@ vim.pack.add({
 	gh("stevearc/quicker.nvim"),
 
 	-- treesitter
-	gh("arborist-ts/arborist.nvim"), -- ts parser manager similar to nvim-treesitter
+	{
+		src = "https://github.com/VonHeikemen/ts-enable.nvim",
+		version = "v2.x",
+	},
 	gh("nvim-treesitter/nvim-treesitter-textobjects"),
 	gh("nvim-treesitter/nvim-treesitter-context"),
 
@@ -476,33 +479,18 @@ map("n", "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>")
 map("n", "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>")
 
 -- treesitter
-local ts_ensure_installed = {
-	"c",
-	"cpp",
-	"go",
-	"lua",
-	"rust",
-	"tsx",
-	"typescript",
-	"javascript",
-	"svelte",
-	"vimdoc",
-	"markdown",
-	"markdown_inline",
-	"json",
-	"toml",
-	"regex",
-	"bash",
-	"css",
-	"just",
-	"fish",
-	"python",
+-- ts_enable options
+vim.g.ts_enable = {
+	-- recommended by author
+	auto_init = true,
+	auto_install = true,
+	highlights = true,
+	-- other defaults
+	regex_syntax = false,
+	folds = false,
+	parser_info = vim.fn.stdpath("config") .. "/treesitter-parsers.json",
+	parser_settings = {},
 }
--- Install parsers and register them for filetypes
-require("arborist").setup({
-	update_cadence = "manual",
-	ensure_installed = ts_ensure_installed,
-})
 
 -- nvim-treesitter-textobjects
 require("nvim-treesitter-textobjects").setup()
