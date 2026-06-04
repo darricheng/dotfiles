@@ -12,7 +12,9 @@
         "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7",
         "url": "https://github.com/tree-sitter/tree-sitter-bash"
       },
-      "language_filetypes": ["sh"],
+      "language_filetypes": [
+        "sh"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -34,7 +36,9 @@
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": ["c"]
+      "requires": [
+        "c"
+      ]
     },
     "css": {
       "install_info": {
@@ -97,7 +101,9 @@
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": ["html_tags"]
+      "requires": [
+        "html_tags"
+      ]
     },
     "html_tags": {
       "install_info": {
@@ -112,11 +118,20 @@
         "revision": "58404d8cf191d69f2674a8fd507bd5776f46cb11",
         "url": "https://github.com/tree-sitter/tree-sitter-javascript"
       },
-      "language_filetypes": ["javascriptreact", "ecma", "ecmascript", "jsx", "js"],
+      "language_filetypes": [
+        "javascriptreact",
+        "ecma",
+        "ecmascript",
+        "jsx",
+        "js"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": ["ecma", "jsx"]
+      "requires": [
+        "ecma",
+        "jsx"
+      ]
     },
     "jsx": {
       "install_info": {
@@ -149,7 +164,10 @@
         "revision": "v0.25.0",
         "url": "https://github.com/tree-sitter/tree-sitter-python"
       },
-      "language_filetypes": ["py", "gyp"],
+      "language_filetypes": [
+        "py",
+        "gyp"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       }
@@ -180,7 +198,9 @@
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": ["html_tags"]
+      "requires": [
+        "html_tags"
+      ]
     },
     "tsx": {
       "install_info": {
@@ -188,11 +208,18 @@
         "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
         "url": "https://github.com/tree-sitter/tree-sitter-typescript"
       },
-      "language_filetypes": ["typescriptreact", "typescript.tsx"],
+      "language_filetypes": [
+        "typescriptreact",
+        "typescript.tsx"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": ["ecma", "jsx", "typescript"]
+      "requires": [
+        "ecma",
+        "jsx",
+        "typescript"
+      ]
     },
     "typescript": {
       "install_info": {
@@ -200,11 +227,27 @@
         "revision": "75b3874edb2dc714fb1fd77a32013d0f8699989f",
         "url": "https://github.com/tree-sitter/tree-sitter-typescript"
       },
-      "language_filetypes": ["ts"],
+      "language_filetypes": [
+        "ts"
+      ],
       "queries_info": {
         "copy_from": "query_fallback"
       },
-      "requires": ["ecma"]
+      "requires": [
+        "ecma"
+      ]
+    },
+    "typst": {
+      "install_info": {
+        "revision": "46cf4ded12ee974a70bf8457263b67ad7ee0379d",
+        "url": "https://github.com/uben0/tree-sitter-typst"
+      },
+      "language_filetypes": [
+        "typ"
+      ],
+      "queries_info": {
+        "copy_from": "query_fallback"
+      }
     },
     "vim": {
       "install_info": {

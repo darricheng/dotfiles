@@ -387,20 +387,15 @@ conform.setup({
 		toml = { "taplo" },
 		json = web_fmt,
 		markdown = web_fmt,
-
-		-- Web
 		html = web_fmt,
 		css = web_fmt,
-
-		-- JS/TS
 		javascript = web_fmt,
 		typescript = web_fmt,
 		typescriptreact = web_fmt,
 		javascriptreact = web_fmt,
 		svelte = web_fmt,
-
-		-- SQL
 		sql = { "sqruff" },
+		typst = { "typstyle" },
 	},
 	format_on_save = {
 		lsp_format = "fallback",
