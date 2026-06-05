@@ -372,8 +372,13 @@ map("n", "<leader>st", function()
 	snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "BUG", "ISSUE" } })
 end, { desc = "Todo/Fix/Fixme" })
 
+-- formatting with conform
 local conform = require("conform")
-local web_fmt = { "oxfmt" }
+
+-- Some codebases might still use prettier, otherwise I want to default to oxc
+---@type conform.FiletypeFormatter
+local web_fmt = { "oxfmt", "prettier", stop_after_first = true }
+
 conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
