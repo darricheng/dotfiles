@@ -2,6 +2,8 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+fish_config theme choose catppuccin-mocha
+
 # Env vars
 set -gx EDITOR nvim
 set -Ux MANPAGER 'nvim +Man!'
@@ -51,4 +53,3 @@ fzf --fish | source
 
 # opam configuration
 # source /Users/darricheng/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
-
