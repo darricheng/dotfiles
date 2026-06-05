@@ -396,6 +396,7 @@ conform.setup({
 		svelte = web_fmt,
 		sql = { "sqruff" },
 		typst = { "typstyle" },
+		fish = { "fish_indent" },
 	},
 	format_on_save = {
 		lsp_format = "fallback",
