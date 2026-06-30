@@ -558,6 +558,11 @@ require("blink.cmp").setup({
 				auto_insert = false,
 			},
 		},
+		accept = {
+			auto_brackets = {
+				enabled = false,
+			},
+		},
 	},
 })
 require("lazydev").setup({
