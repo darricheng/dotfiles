@@ -7,6 +7,22 @@
     }
   },
   "parsers": {
+    "angular": {
+      "install_info": {
+        "revision": "f0d0685701b70883fa2dfe94ee7dc27965cab841",
+        "url": "https://github.com/dlvandenberg/tree-sitter-angular"
+      },
+      "language_filetypes": [
+        "htmlangular"
+      ],
+      "queries_info": {
+        "copy_from": "query_fallback"
+      },
+      "requires": [
+        "html",
+        "html_tags"
+      ]
+    },
     "bash": {
       "install_info": {
         "revision": "a06c2e4415e9bc0346c6b86d401879ffb44058f7",
