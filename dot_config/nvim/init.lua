@@ -35,7 +35,7 @@ vim.pack.add({
 	{ src = gh("shortcuts/no-neck-pain.nvim"), version = vim.version.range("*") },
 	gh("tpope/vim-abolish"),
 	{ src = gh("kylechui/nvim-surround"), version = vim.version.range("*") },
-	gh("numToStr/Comment.nvim"),
+	gh("folke/ts-comments.nvim"),
 	gh("windwp/nvim-autopairs"),
 	gh("windwp/nvim-ts-autotag"),
 	gh("lukas-reineke/indent-blankline.nvim"),
@@ -349,7 +349,7 @@ map("n", "<leader>nr", function()
 	end, 100)
 end, { desc = "[N]oNeckPain: Reset (double toggle)" })
 
-require("Comment").setup()
+require("ts-comments").setup()
 require("nvim-autopairs").setup()
 require("ibl").setup({
 	-- Setup config for indent_blankline goes here
