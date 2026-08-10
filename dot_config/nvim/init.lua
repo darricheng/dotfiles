@@ -394,6 +394,7 @@ conform.setup({
 		markdown = web_fmt,
 		html = web_fmt,
 		css = web_fmt,
+		scss = web_fmt,
 		javascript = web_fmt,
 		typescript = web_fmt,
 		typescriptreact = web_fmt,
