@@ -393,6 +393,7 @@ conform.setup({
 		json = web_fmt,
 		markdown = web_fmt,
 		html = web_fmt,
+		htmlangular = web_fmt,
 		css = web_fmt,
 		scss = web_fmt,
 		javascript = web_fmt,
