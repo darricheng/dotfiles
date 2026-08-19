@@ -29,8 +29,8 @@ fish_add_path ~/.local/bin
 # set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
 # set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
 
-# Ailytics poetry
-fish_add_path ~/.poetry/venv/bin/poetry
+# trash-cli
+fish_add_path /opt/homebrew/opt/trash-cli/bin
 
 # Python
 # Use virtualfish? https://github.com/justinmayer/virtualfish
